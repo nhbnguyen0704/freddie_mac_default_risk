@@ -1,0 +1,37 @@
+# Python environments
+venv/
+airflow_venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets and local settings
+.env
+.idea/
+.vscode/
+.DS_Store
+
+# Working notes
+development/CLAUDE.md
+deployment/CLAUDE.md
+deployment/PLAN.md
+
+# Development: raw data, large tables, model binaries and run logs
+development/data/raw/
+development/logs/
+*.parquet
+*.csv
+*.ubj
+*.pkl
+*.joblib
+*.db
+*.db-shm
+*.db-wal
+development/artifacts/*_models/
+
+# Deployment: local MLflow store, Airflow home (holds the admin password), Spark scratch
+deployment/mlflow/
+deployment/airflow/
+spark-warehouse/
+metastore_db/
+derby.log

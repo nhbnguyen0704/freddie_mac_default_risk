@@ -1,0 +1,360 @@
+{
+  "meta": {
+    "train_period": "2016-01-2022-09",
+    "test_after": "2022-09",
+    "p_threshold": 0.05,
+    "candidates": 31,
+    "rule": "drop highest p-value, lowest IV on a tie, refit",
+    "fit": "maximum likelihood, Newton/IRLS on every train row; Wald p-values",
+    "metric": "PR-AUC = average precision over score groups (logit rounded to 1e-4)",
+    "selected": "hdfs://localhost:9000/user/binhn/fre/curated/training_set_woe_selected",
+    "selection_json": "/Users/binhn/Desktop/NUS-ISS/Predictive_Analytic_Lifecycle_GC/Practice_module/test_freddie_mac_default_risk/development/artifacts/vif_selection.json",
+    "binning_json": "/Users/binhn/Desktop/NUS-ISS/Predictive_Analytic_Lifecycle_GC/Practice_module/test_freddie_mac_default_risk/development/artifacts/woe_binning.json",
+    "generated": "2026-09-30T00:08:56",
+    "source": "src/jobs/10_lr_model_main.py"
+  },
+  "fit": {
+    "train_rows": 576268072,
+    "train_bads": 5138530,
+    "log_likelihood": -22645163.63126462,
+    "iterations_last_fit": 16
+  },
+  "intercept": -4.650417608376392,
+  "features": [
+    "loan_age_woe",
+    "remaining_months_to_legal_maturity_woe",
+    "servicer_name_woe",
+    "classic_fico_woe",
+    "metropolitan_statistical_area_or_metropolitan_division_woe",
+    "mortgage_insurance_percentage_woe",
+    "occupancy_status_woe",
+    "original_debt_to_income_ratio_woe",
+    "original_upb_woe",
+    "original_loan_to_value_woe",
+    "original_interest_rate_woe",
+    "channel_woe",
+    "property_state_woe",
+    "property_type_woe",
+    "loan_purpose_woe",
+    "original_loan_term_woe",
+    "number_of_borrowers_woe",
+    "seller_name_woe",
+    "harp_indicator_woe",
+    "property_valuation_method_woe",
+    "dpd_cnt30_l3m_woe",
+    "current_streak_l3m_woe",
+    "n_cure_l6m_woe",
+    "n_cure_l12m_woe",
+    "n_curtail_l3m_woe",
+    "ltv_x_dti_woe",
+    "upb_pct_of_original_woe",
+    "estimated_property_value_woe",
+    "property_value_change_woe",
+    "upb_pct_of_original_roc_l3m_woe",
+    "property_value_roc_l12m_woe"
+  ],
+  "coefficients": [
+    {
+      "feature": "loan_age_woe",
+      "coef": 0.1307209941066306,
+      "std_err": 0.0016766771523539054,
+      "z": 77.96432003806456,
+      "p_value": 0.0,
+      "iv": 0.19329207149003486,
+      "sign_ok": false
+    },
+    {
+      "feature": "remaining_months_to_legal_maturity_woe",
+      "coef": -0.8286750566008221,
+      "std_err": 0.0029482317811332253,
+      "z": -281.0752743063846,
+      "p_value": 0.0,
+      "iv": 0.03518171578717781,
+      "sign_ok": true
+    },
+    {
+      "feature": "servicer_name_woe",
+      "coef": -0.317036550011789,
+      "std_err": 0.001867362542195631,
+      "z": -169.7777174211815,
+      "p_value": 0.0,
+      "iv": 0.06431070489887139,
+      "sign_ok": true
+    },
+    {
+      "feature": "classic_fico_woe",
+      "coef": -0.5401613227877592,
+      "std_err": 0.000598389137807906,
+      "z": -902.6923930580455,
+      "p_value": 0.0,
+      "iv": 0.7240041340421891,
+      "sign_ok": true
+    },
+    {
+      "feature": "metropolitan_statistical_area_or_metropolitan_division_woe",
+      "coef": -0.24537696566377548,
+      "std_err": 0.002543069681542381,
+      "z": -96.48849476863468,
+      "p_value": 0.0,
+      "iv": 0.041912538536119495,
+      "sign_ok": true
+    },
+    {
+      "feature": "mortgage_insurance_percentage_woe",
+      "coef": -0.242800283019631,
+      "std_err": 0.003137902325430649,
+      "z": -77.37662229059626,
+      "p_value": 0.0,
+      "iv": 0.036891119445113,
+      "sign_ok": true
+    },
+    {
+      "feature": "occupancy_status_woe",
+      "coef": -0.9264874190436726,
+      "std_err": 0.0043804707267155706,
+      "z": -211.50407726576518,
+      "p_value": 0.0,
+      "iv": 0.015055299851787827,
+      "sign_ok": true
+    },
+    {
+      "feature": "original_debt_to_income_ratio_woe",
+      "coef": -0.4088224526155046,
+      "std_err": 0.001796251118943292,
+      "z": -227.5976049807606,
+      "p_value": 0.0,
+      "iv": 0.11644031082262923,
+      "sign_ok": true
+    },
+    {
+      "feature": "original_upb_woe",
+      "coef": -0.28444307396323204,
+      "std_err": 0.001970916645260349,
+      "z": -144.32019469075945,
+      "p_value": 0.0,
+      "iv": 0.13277145002312868,
+      "sign_ok": true
+    },
+    {
+      "feature": "original_loan_to_value_woe",
+      "coef": -0.39366911635684415,
+      "std_err": 0.002238875987430945,
+      "z": -175.83337289197948,
+      "p_value": 0.0,
+      "iv": 0.09468774670008044,
+      "sign_ok": true
+    },
+    {
+      "feature": "original_interest_rate_woe",
+      "coef": -0.40961784907884236,
+      "std_err": 0.0010817282983549969,
+      "z": -378.6698098790199,
+      "p_value": 0.0,
+      "iv": 0.54126047050837,
+      "sign_ok": true
+    },
+    {
+      "feature": "channel_woe",
+      "coef": 0.008864706964234394,
+      "std_err": 0.0013217274140864732,
+      "z": 6.706910116078159,
+      "p_value": 1.9878862156442704e-11,
+      "iv": 0.15082431442934766,
+      "sign_ok": false
+    },
+    {
+      "feature": "property_state_woe",
+      "coef": -0.17386126391772536,
+      "std_err": 0.002591214425612512,
+      "z": -67.09644026338268,
+      "p_value": 0.0,
+      "iv": 0.04335232152118509,
+      "sign_ok": true
+    },
+    {
+      "feature": "property_type_woe",
+      "coef": -0.07299589885573912,
+      "std_err": 0.0027167998995249218,
+      "z": -26.868338322783245,
+      "p_value": 5.150569474182616e-159,
+      "iv": 0.03478750727918609,
+      "sign_ok": true
+    },
+    {
+      "feature": "loan_purpose_woe",
+      "coef": -0.8088408267998067,
+      "std_err": 0.004447864923767801,
+      "z": -181.84923343279834,
+      "p_value": 0.0,
+      "iv": 0.015369452645397106,
+      "sign_ok": true
+    },
+    {
+      "feature": "original_loan_term_woe",
+      "coef": -0.11151414783231826,
+      "std_err": 0.0026034859356828103,
+      "z": -42.832629246783966,
+      "p_value": 0.0,
+      "iv": 0.07106999819224837,
+      "sign_ok": true
+    },
+    {
+      "feature": "number_of_borrowers_woe",
+      "coef": -0.8120296880324089,
+      "std_err": 0.0013972179884556366,
+      "z": -581.1760904466711,
+      "p_value": 0.0,
+      "iv": 0.12896030224284347,
+      "sign_ok": true
+    },
+    {
+      "feature": "seller_name_woe",
+      "coef": -0.10557783404497795,
+      "std_err": 0.002063692235584193,
+      "z": -51.159679832342256,
+      "p_value": 0.0,
+      "iv": 0.05579864935703673,
+      "sign_ok": true
+    },
+    {
+      "feature": "harp_indicator_woe",
+      "coef": 0.05628998492844131,
+      "std_err": 0.004159517067435708,
+      "z": 13.532817395828937,
+      "p_value": 1.0011193156221844e-41,
+      "iv": 0.023830919438186524,
+      "sign_ok": false
+    },
+    {
+      "feature": "property_valuation_method_woe",
+      "coef": 0.42052725886280895,
+      "std_err": 0.0024908284564028773,
+      "z": 168.8302772444282,
+      "p_value": 0.0,
+      "iv": 0.06233705692374666,
+      "sign_ok": false
+    },
+    {
+      "feature": "dpd_cnt30_l3m_woe",
+      "coef": -0.5305445163685584,
+      "std_err": 0.0007413033173534986,
+      "z": -715.6915448087256,
+      "p_value": 0.0,
+      "iv": 1.2526234844002886,
+      "sign_ok": true
+    },
+    {
+      "feature": "current_streak_l3m_woe",
+      "coef": -0.248803163144403,
+      "std_err": 0.0008889458276303055,
+      "z": -279.88563015999125,
+      "p_value": 0.0,
+      "iv": 0.8334503663819685,
+      "sign_ok": true
+    },
+    {
+      "feature": "n_cure_l6m_woe",
+      "coef": 0.20645829486133932,
+      "std_err": 0.0007712247849419664,
+      "z": 267.7018411394481,
+      "p_value": 0.0,
+      "iv": 0.568494730853622,
+      "sign_ok": false
+    },
+    {
+      "feature": "n_cure_l12m_woe",
+      "coef": -0.3954375085142281,
+      "std_err": 0.0006863836613649535,
+      "z": -576.1173098553289,
+      "p_value": 0.0,
+      "iv": 0.7984141960563474,
+      "sign_ok": true
+    },
+    {
+      "feature": "n_curtail_l3m_woe",
+      "coef": -0.4470806819689899,
+      "std_err": 0.002458695812208721,
+      "z": -181.8365166398375,
+      "p_value": 0.0,
+      "iv": 0.059112498330356145,
+      "sign_ok": true
+    },
+    {
+      "feature": "ltv_x_dti_woe",
+      "coef": -0.18289040126760595,
+      "std_err": 0.002147486073296681,
+      "z": -85.16488350811258,
+      "p_value": 0.0,
+      "iv": 0.1260743084334568,
+      "sign_ok": true
+    },
+    {
+      "feature": "upb_pct_of_original_woe",
+      "coef": -0.8146281795734237,
+      "std_err": 0.01573607932619483,
+      "z": -51.76817952470314,
+      "p_value": 0.0,
+      "iv": 0.17013398013519998,
+      "sign_ok": true
+    },
+    {
+      "feature": "estimated_property_value_woe",
+      "coef": -0.004326081989201175,
+      "std_err": 0.0018505575623290508,
+      "z": -2.3377181435829053,
+      "p_value": 0.019401874336511426,
+      "iv": 0.1815343180340595,
+      "sign_ok": true
+    },
+    {
+      "feature": "property_value_change_woe",
+      "coef": -0.13162351587301407,
+      "std_err": 0.002585978163215988,
+      "z": -50.898927819763074,
+      "p_value": 0.0,
+      "iv": 0.06560803995620278,
+      "sign_ok": true
+    },
+    {
+      "feature": "upb_pct_of_original_roc_l3m_woe",
+      "coef": -0.420139199659868,
+      "std_err": 0.0008376877784148579,
+      "z": -501.54629264723206,
+      "p_value": 0.0,
+      "iv": 0.3724677105304887,
+      "sign_ok": true
+    },
+    {
+      "feature": "property_value_roc_l12m_woe",
+      "coef": -0.4031984034841694,
+      "std_err": 0.004285874856381438,
+      "z": -94.0761027783694,
+      "p_value": 0.0,
+      "iv": 0.02313274646034575,
+      "sign_ok": true
+    }
+  ],
+  "steps": [],
+  "evaluation": {
+    "train": {
+      "months": 81,
+      "rows": 576268072,
+      "bads": 5138530,
+      "bad_rate": 0.008916909073525768,
+      "mean_pd": 0.008916909061226577,
+      "pr_auc": 0.16829093215113602,
+      "no_skill_pr_auc": 0.008916909073525768,
+      "score_groups": 180434
+    },
+    "test": {
+      "months": 17,
+      "rows": 187470934,
+      "bads": 2240522,
+      "bad_rate": 0.011951303341775637,
+      "mean_pd": 0.008105576347377257,
+      "pr_auc": 0.13718371935582108,
+      "no_skill_pr_auc": 0.011951303341775637,
+      "score_groups": 166742
+    }
+  }
+}

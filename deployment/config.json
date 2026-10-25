@@ -1,0 +1,24 @@
+{
+  "performance": "hdfs://localhost:9000/user/binhn/fre/curated/performance",
+  "origination": "hdfs://localhost:9000/user/binhn/fre/curated/origination",
+  "training_set": "hdfs://localhost:9000/user/binhn/fre/curated/training_set",
+  "regional_features": "hdfs://localhost:9000/user/binhn/fre/curated/regional_features",
+  "output_root":"hdfs://localhost:9000/user/binhn/fre/deployment",
+  "development_artifacts": "../development/artifacts",
+  "label_spec": "../development/data/curated/observations_labelspec.json",
+  "history_months": 12,
+  "regional_lag_months": 6,
+  "files_per_month": 8,
+  "spark": {
+    "master": "local[*,4]",
+    "default_fs": "hdfs://localhost:9000",
+    "shuffle_partitions": "400",
+    "memory": "10g"
+  },
+  "mlflow": {
+    "dir": "mlflow",
+    "experiment": "fre_pd_scoring",
+    "model_name": "fre_pd_two_segment",
+    "alias": "champion"
+  }
+}

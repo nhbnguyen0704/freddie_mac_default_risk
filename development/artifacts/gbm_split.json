@@ -1,0 +1,46 @@
+{
+  "config": {
+    "dev_end": "2022-09",
+    "end_ym": 202209,
+    "valid_share": 0.2,
+    "salt": "gbm_valid",
+    "unit": "loan_identifier",
+    "training_set": "hdfs://localhost:9000/user/binhn/fre/curated/training_set",
+    "first_month": "2016-01"
+  },
+  "totals": {
+    "test": {
+      "rows": 187470934.0,
+      "bads": 2240522.0,
+      "bad rate": 0.011951303341775637,
+      "share of rows": 0.24546465811908524
+    },
+    "train": {
+      "rows": 460914721.0,
+      "bads": 4107395.0,
+      "bad rate": 0.008911399035137348,
+      "share of rows": 0.6034976836052812
+    },
+    "valid": {
+      "rows": 115353351.0,
+      "bads": 1031135.0,
+      "bad rate": 0.008938925406683678,
+      "share of rows": 0.1510376582756335
+    }
+  },
+  "loans": {
+    "valid": 4712722.0,
+    "train": 18672351.0
+  },
+  "summary": {
+    "dev_loans": 23385073.0,
+    "valid_row_share_min": 0.19994055540315334,
+    "valid_row_share_max": 0.20039739332485204,
+    "valid_bad_share_min": 0.19749117992943943,
+    "valid_bad_share_max": 0.2065947432439579,
+    "bad_rate_ratio_min": 0.9827923562513791,
+    "bad_rate_ratio_max": 1.0395195159801187
+  },
+  "generated": "2026-10-04T22:22:20",
+  "source": "src/jobs/11_gbm_split_main.py"
+}

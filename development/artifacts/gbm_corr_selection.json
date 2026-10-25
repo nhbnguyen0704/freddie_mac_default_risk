@@ -1,0 +1,888 @@
+{
+  "meta": {
+    "split": {
+      "dev_end": "2022-09",
+      "end_ym": 202209,
+      "valid_share": 0.2,
+      "salt": "gbm_valid",
+      "unit": "loan_identifier",
+      "training_set": "hdfs://localhost:9000/user/binhn/fre/curated/training_set",
+      "first_month": "2016-01"
+    },
+    "train_rows": 460914721,
+    "corr_threshold": 0.8,
+    "univariate_bins": 100,
+    "max_exact_distinct": 1000000,
+    "rank_buckets": 50000,
+    "method": "Spearman, pairwise non-null train rows",
+    "corr_rule": "highest max |corr|, then highest median |corr|, then lowest univariate AP",
+    "corr_csv": "/Users/binhn/Desktop/NUS-ISS/Predictive_Analytic_Lifecycle_GC/Practice_module/test_freddie_mac_default_risk/development/artifacts/gbm_spearman_train.csv",
+    "univariate_json": "/Users/binhn/Desktop/NUS-ISS/Predictive_Analytic_Lifecycle_GC/Practice_module/test_freddie_mac_default_risk/development/artifacts/gbm_univariate.json",
+    "generated": "2026-10-05T01:28:59",
+    "source": "src/jobs/12_gbm_corr_selection_main.py"
+  },
+  "kinds": {
+    "loan_age": "numerical",
+    "current_actual_upb": "numerical",
+    "current_interest_rate": "numerical",
+    "remaining_months_to_legal_maturity": "numerical",
+    "estimated_loan_to_value": "numerical",
+    "servicer_name": "categorical",
+    "classic_fico": "numerical",
+    "first_time_homebuyer_indicator": "categorical",
+    "metropolitan_statistical_area_or_metropolitan_division": "categorical",
+    "mortgage_insurance_percentage": "numerical",
+    "number_of_units": "numerical",
+    "occupancy_status": "categorical",
+    "original_combined_loan_to_value": "numerical",
+    "original_debt_to_income_ratio": "numerical",
+    "original_upb": "numerical",
+    "original_loan_to_value": "numerical",
+    "original_interest_rate": "numerical",
+    "channel": "categorical",
+    "prepayment_penalty_indicator": "categorical",
+    "amortization_type": "categorical",
+    "property_state": "categorical",
+    "property_type": "categorical",
+    "postal_code": "categorical",
+    "loan_purpose": "categorical",
+    "original_loan_term": "numerical",
+    "number_of_borrowers": "numerical",
+    "seller_name": "categorical",
+    "super_conforming_flag": "categorical",
+    "special_eligibility_program": "categorical",
+    "harp_indicator": "categorical",
+    "property_valuation_method": "categorical",
+    "interest_only_indicator": "categorical",
+    "dpd_max_l3m": "numerical",
+    "dpd_cnt30_l3m": "numerical",
+    "dpd_cnt60_l3m": "numerical",
+    "dpd_max_l6m": "numerical",
+    "dpd_cnt30_l6m": "numerical",
+    "dpd_cnt60_l6m": "numerical",
+    "dpd_max_l12m": "numerical",
+    "dpd_cnt30_l12m": "numerical",
+    "dpd_cnt60_l12m": "numerical",
+    "current_interest_rate_roc_l3m": "numerical",
+    "current_interest_rate_roc_l6m": "numerical",
+    "current_interest_rate_roc_l12m": "numerical",
+    "dpd": "numerical",
+    "months_since_last_dpd30": "numerical",
+    "months_since_last_dpd60": "numerical",
+    "current_streak_l3m": "numerical",
+    "dpd30_streak_l3m": "numerical",
+    "dpd60_streak_l3m": "numerical",
+    "current_streak_l6m": "numerical",
+    "dpd30_streak_l6m": "numerical",
+    "dpd60_streak_l6m": "numerical",
+    "current_streak_l12m": "numerical",
+    "dpd30_streak_l12m": "numerical",
+    "dpd60_streak_l12m": "numerical",
+    "n_roll_forward_l3m": "numerical",
+    "n_cure_l3m": "numerical",
+    "n_roll_forward_l6m": "numerical",
+    "n_cure_l6m": "numerical",
+    "n_roll_forward_l12m": "numerical",
+    "n_cure_l12m": "numerical",
+    "n_curtail_l3m": "numerical",
+    "n_curtail_l6m": "numerical",
+    "n_curtail_l12m": "numerical",
+    "servicer_changed_l12m": "numerical",
+    "rate_gap": "numerical",
+    "ltv_x_dti": "numerical",
+    "upb_pct_of_original": "numerical",
+    "ltv_ratio_to_original": "numerical",
+    "negative_equity_flag": "numerical",
+    "estimated_property_value": "numerical",
+    "property_value_change": "numerical",
+    "upb_pct_of_original_roc_l3m": "numerical",
+    "upb_pct_of_original_roc_l6m": "numerical",
+    "upb_pct_of_original_roc_l12m": "numerical",
+    "property_value_roc_l3m": "numerical",
+    "property_value_roc_l6m": "numerical",
+    "property_value_roc_l12m": "numerical"
+  },
+  "numeric": [
+    "loan_age",
+    "current_actual_upb",
+    "current_interest_rate",
+    "remaining_months_to_legal_maturity",
+    "estimated_loan_to_value",
+    "classic_fico",
+    "mortgage_insurance_percentage",
+    "number_of_units",
+    "original_combined_loan_to_value",
+    "original_debt_to_income_ratio",
+    "original_upb",
+    "original_loan_to_value",
+    "original_interest_rate",
+    "original_loan_term",
+    "number_of_borrowers",
+    "dpd_max_l3m",
+    "dpd_cnt30_l3m",
+    "dpd_cnt60_l3m",
+    "dpd_max_l6m",
+    "dpd_cnt30_l6m",
+    "dpd_cnt60_l6m",
+    "dpd_max_l12m",
+    "dpd_cnt30_l12m",
+    "dpd_cnt60_l12m",
+    "current_interest_rate_roc_l3m",
+    "current_interest_rate_roc_l6m",
+    "current_interest_rate_roc_l12m",
+    "dpd",
+    "months_since_last_dpd30",
+    "months_since_last_dpd60",
+    "current_streak_l3m",
+    "dpd30_streak_l3m",
+    "dpd60_streak_l3m",
+    "current_streak_l6m",
+    "dpd30_streak_l6m",
+    "dpd60_streak_l6m",
+    "current_streak_l12m",
+    "dpd30_streak_l12m",
+    "dpd60_streak_l12m",
+    "n_roll_forward_l3m",
+    "n_cure_l3m",
+    "n_roll_forward_l6m",
+    "n_cure_l6m",
+    "n_roll_forward_l12m",
+    "n_cure_l12m",
+    "n_curtail_l3m",
+    "n_curtail_l6m",
+    "n_curtail_l12m",
+    "servicer_changed_l12m",
+    "rate_gap",
+    "ltv_x_dti",
+    "upb_pct_of_original",
+    "ltv_ratio_to_original",
+    "negative_equity_flag",
+    "estimated_property_value",
+    "property_value_change",
+    "upb_pct_of_original_roc_l3m",
+    "upb_pct_of_original_roc_l6m",
+    "upb_pct_of_original_roc_l12m",
+    "property_value_roc_l3m",
+    "property_value_roc_l6m",
+    "property_value_roc_l12m"
+  ],
+  "categorical": [
+    "servicer_name",
+    "first_time_homebuyer_indicator",
+    "metropolitan_statistical_area_or_metropolitan_division",
+    "occupancy_status",
+    "channel",
+    "prepayment_penalty_indicator",
+    "amortization_type",
+    "property_state",
+    "property_type",
+    "postal_code",
+    "loan_purpose",
+    "seller_name",
+    "super_conforming_flag",
+    "special_eligibility_program",
+    "harp_indicator",
+    "property_valuation_method",
+    "interest_only_indicator"
+  ],
+  "kept_numeric": [
+    "current_actual_upb",
+    "current_interest_rate",
+    "remaining_months_to_legal_maturity",
+    "classic_fico",
+    "mortgage_insurance_percentage",
+    "number_of_units",
+    "original_combined_loan_to_value",
+    "original_debt_to_income_ratio",
+    "original_loan_term",
+    "number_of_borrowers",
+    "dpd_cnt60_l3m",
+    "current_interest_rate_roc_l3m",
+    "current_interest_rate_roc_l6m",
+    "current_interest_rate_roc_l12m",
+    "dpd",
+    "months_since_last_dpd60",
+    "current_streak_l3m",
+    "current_streak_l6m",
+    "current_streak_l12m",
+    "dpd60_streak_l12m",
+    "n_roll_forward_l3m",
+    "n_cure_l3m",
+    "n_roll_forward_l6m",
+    "n_cure_l6m",
+    "n_cure_l12m",
+    "n_curtail_l3m",
+    "n_curtail_l12m",
+    "servicer_changed_l12m",
+    "rate_gap",
+    "ltv_x_dti",
+    "upb_pct_of_original",
+    "negative_equity_flag",
+    "estimated_property_value",
+    "property_value_change",
+    "upb_pct_of_original_roc_l12m",
+    "property_value_roc_l3m",
+    "property_value_roc_l6m",
+    "property_value_roc_l12m"
+  ],
+  "candidates": [
+    "current_actual_upb",
+    "current_interest_rate",
+    "remaining_months_to_legal_maturity",
+    "classic_fico",
+    "mortgage_insurance_percentage",
+    "number_of_units",
+    "original_combined_loan_to_value",
+    "original_debt_to_income_ratio",
+    "original_loan_term",
+    "number_of_borrowers",
+    "dpd_cnt60_l3m",
+    "current_interest_rate_roc_l3m",
+    "current_interest_rate_roc_l6m",
+    "current_interest_rate_roc_l12m",
+    "dpd",
+    "months_since_last_dpd60",
+    "current_streak_l3m",
+    "current_streak_l6m",
+    "current_streak_l12m",
+    "dpd60_streak_l12m",
+    "n_roll_forward_l3m",
+    "n_cure_l3m",
+    "n_roll_forward_l6m",
+    "n_cure_l6m",
+    "n_cure_l12m",
+    "n_curtail_l3m",
+    "n_curtail_l12m",
+    "servicer_changed_l12m",
+    "rate_gap",
+    "ltv_x_dti",
+    "upb_pct_of_original",
+    "negative_equity_flag",
+    "estimated_property_value",
+    "property_value_change",
+    "upb_pct_of_original_roc_l12m",
+    "property_value_roc_l3m",
+    "property_value_roc_l6m",
+    "property_value_roc_l12m",
+    "servicer_name",
+    "first_time_homebuyer_indicator",
+    "metropolitan_statistical_area_or_metropolitan_division",
+    "occupancy_status",
+    "channel",
+    "prepayment_penalty_indicator",
+    "amortization_type",
+    "property_state",
+    "property_type",
+    "postal_code",
+    "loan_purpose",
+    "seller_name",
+    "super_conforming_flag",
+    "special_eligibility_program",
+    "harp_indicator",
+    "property_valuation_method",
+    "interest_only_indicator"
+  ],
+  "masks": {
+    "remaining_months_to_legal_maturity": "remaining_months_to_legal_maturity",
+    "estimated_loan_to_value": "estimated_loan_to_value",
+    "classic_fico": "classic_fico",
+    "mortgage_insurance_percentage": "mortgage_insurance_percentage",
+    "number_of_units": "number_of_units",
+    "original_combined_loan_to_value": "original_combined_loan_to_value",
+    "original_debt_to_income_ratio": "original_debt_to_income_ratio",
+    "original_loan_to_value": "original_loan_to_value",
+    "number_of_borrowers": "number_of_borrowers",
+    "current_interest_rate_roc_l3m": "current_interest_rate_roc_l3m",
+    "current_interest_rate_roc_l6m": "current_interest_rate_roc_l6m",
+    "current_interest_rate_roc_l12m": "current_interest_rate_roc_l12m",
+    "ltv_x_dti": "ltv_x_dti",
+    "ltv_ratio_to_original": "ltv_ratio_to_original",
+    "negative_equity_flag": "estimated_loan_to_value",
+    "estimated_property_value": "estimated_property_value",
+    "property_value_change": "property_value_change",
+    "upb_pct_of_original_roc_l3m": "upb_pct_of_original_roc_l3m",
+    "upb_pct_of_original_roc_l6m": "upb_pct_of_original_roc_l6m",
+    "upb_pct_of_original_roc_l12m": "upb_pct_of_original_roc_l12m",
+    "property_value_roc_l3m": "property_value_roc_l3m",
+    "property_value_roc_l6m": "property_value_roc_l6m",
+    "property_value_roc_l12m": "property_value_roc_l12m"
+  },
+  "rank_groups": {
+    "loan_age": {
+      "groups": 285,
+      "exact": true,
+      "approx_distinct": 286
+    },
+    "current_actual_upb": {
+      "groups": 42969,
+      "exact": false,
+      "approx_distinct": 46464298
+    },
+    "current_interest_rate": {
+      "groups": 5188,
+      "exact": true,
+      "approx_distinct": 5146
+    },
+    "remaining_months_to_legal_maturity": {
+      "groups": 624,
+      "exact": true,
+      "approx_distinct": 632
+    },
+    "estimated_loan_to_value": {
+      "groups": 707,
+      "exact": true,
+      "approx_distinct": 710
+    },
+    "classic_fico": {
+      "groups": 441,
+      "exact": true,
+      "approx_distinct": 442
+    },
+    "mortgage_insurance_percentage": {
+      "groups": 56,
+      "exact": true,
+      "approx_distinct": 54
+    },
+    "number_of_units": {
+      "groups": 4,
+      "exact": true,
+      "approx_distinct": 4
+    },
+    "original_combined_loan_to_value": {
+      "groups": 610,
+      "exact": true,
+      "approx_distinct": 616
+    },
+    "original_debt_to_income_ratio": {
+      "groups": 65,
+      "exact": true,
+      "approx_distinct": 63
+    },
+    "original_upb": {
+      "groups": 1344,
+      "exact": true,
+      "approx_distinct": 1347
+    },
+    "original_loan_to_value": {
+      "groups": 543,
+      "exact": true,
+      "approx_distinct": 549
+    },
+    "original_interest_rate": {
+      "groups": 5187,
+      "exact": true,
+      "approx_distinct": 5146
+    },
+    "original_loan_term": {
+      "groups": 317,
+      "exact": true,
+      "approx_distinct": 319
+    },
+    "number_of_borrowers": {
+      "groups": 6,
+      "exact": true,
+      "approx_distinct": 6
+    },
+    "dpd_max_l3m": {
+      "groups": 100,
+      "exact": true,
+      "approx_distinct": 100
+    },
+    "dpd_cnt30_l3m": {
+      "groups": 4,
+      "exact": true,
+      "approx_distinct": 4
+    },
+    "dpd_cnt60_l3m": {
+      "groups": 4,
+      "exact": true,
+      "approx_distinct": 4
+    },
+    "dpd_max_l6m": {
+      "groups": 100,
+      "exact": true,
+      "approx_distinct": 100
+    },
+    "dpd_cnt30_l6m": {
+      "groups": 7,
+      "exact": true,
+      "approx_distinct": 7
+    },
+    "dpd_cnt60_l6m": {
+      "groups": 7,
+      "exact": true,
+      "approx_distinct": 7
+    },
+    "dpd_max_l12m": {
+      "groups": 100,
+      "exact": true,
+      "approx_distinct": 100
+    },
+    "dpd_cnt30_l12m": {
+      "groups": 13,
+      "exact": true,
+      "approx_distinct": 13
+    },
+    "dpd_cnt60_l12m": {
+      "groups": 13,
+      "exact": true,
+      "approx_distinct": 13
+    },
+    "current_interest_rate_roc_l3m": {
+      "groups": 95,
+      "exact": true,
+      "approx_distinct": 94
+    },
+    "current_interest_rate_roc_l6m": {
+      "groups": 132,
+      "exact": true,
+      "approx_distinct": 132
+    },
+    "current_interest_rate_roc_l12m": {
+      "groups": 221,
+      "exact": true,
+      "approx_distinct": 222
+    },
+    "dpd": {
+      "groups": 3,
+      "exact": true,
+      "approx_distinct": 3
+    },
+    "months_since_last_dpd30": {
+      "groups": 13,
+      "exact": true,
+      "approx_distinct": 13
+    },
+    "months_since_last_dpd60": {
+      "groups": 13,
+      "exact": true,
+      "approx_distinct": 13
+    },
+    "current_streak_l3m": {
+      "groups": 4,
+      "exact": true,
+      "approx_distinct": 4
+    },
+    "dpd30_streak_l3m": {
+      "groups": 4,
+      "exact": true,
+      "approx_distinct": 4
+    },
+    "dpd60_streak_l3m": {
+      "groups": 4,
+      "exact": true,
+      "approx_distinct": 4
+    },
+    "current_streak_l6m": {
+      "groups": 7,
+      "exact": true,
+      "approx_distinct": 7
+    },
+    "dpd30_streak_l6m": {
+      "groups": 7,
+      "exact": true,
+      "approx_distinct": 7
+    },
+    "dpd60_streak_l6m": {
+      "groups": 7,
+      "exact": true,
+      "approx_distinct": 7
+    },
+    "current_streak_l12m": {
+      "groups": 13,
+      "exact": true,
+      "approx_distinct": 13
+    },
+    "dpd30_streak_l12m": {
+      "groups": 13,
+      "exact": true,
+      "approx_distinct": 13
+    },
+    "dpd60_streak_l12m": {
+      "groups": 13,
+      "exact": true,
+      "approx_distinct": 13
+    },
+    "n_roll_forward_l3m": {
+      "groups": 3,
+      "exact": true,
+      "approx_distinct": 3
+    },
+    "n_cure_l3m": {
+      "groups": 2,
+      "exact": true,
+      "approx_distinct": 2
+    },
+    "n_roll_forward_l6m": {
+      "groups": 5,
+      "exact": true,
+      "approx_distinct": 5
+    },
+    "n_cure_l6m": {
+      "groups": 4,
+      "exact": true,
+      "approx_distinct": 4
+    },
+    "n_roll_forward_l12m": {
+      "groups": 11,
+      "exact": true,
+      "approx_distinct": 11
+    },
+    "n_cure_l12m": {
+      "groups": 7,
+      "exact": true,
+      "approx_distinct": 7
+    },
+    "n_curtail_l3m": {
+      "groups": 3,
+      "exact": true,
+      "approx_distinct": 3
+    },
+    "n_curtail_l6m": {
+      "groups": 6,
+      "exact": true,
+      "approx_distinct": 6
+    },
+    "n_curtail_l12m": {
+      "groups": 12,
+      "exact": true,
+      "approx_distinct": 12
+    },
+    "servicer_changed_l12m": {
+      "groups": 2,
+      "exact": true,
+      "approx_distinct": 2
+    },
+    "rate_gap": {
+      "groups": 109,
+      "exact": true,
+      "approx_distinct": 108
+    },
+    "ltv_x_dti": {
+      "groups": 7297,
+      "exact": true,
+      "approx_distinct": 7428
+    },
+    "upb_pct_of_original": {
+      "groups": 44004,
+      "exact": false,
+      "approx_distinct": 220210582
+    },
+    "ltv_ratio_to_original": {
+      "groups": 37430,
+      "exact": true,
+      "approx_distinct": 37444
+    },
+    "negative_equity_flag": {
+      "groups": 2,
+      "exact": true,
+      "approx_distinct": 2
+    },
+    "estimated_property_value": {
+      "groups": 49407,
+      "exact": false,
+      "approx_distinct": 213997397
+    },
+    "property_value_change": {
+      "groups": 49320,
+      "exact": false,
+      "approx_distinct": 269992177
+    },
+    "upb_pct_of_original_roc_l3m": {
+      "groups": 49888,
+      "exact": false,
+      "approx_distinct": 98570731
+    },
+    "upb_pct_of_original_roc_l6m": {
+      "groups": 49945,
+      "exact": false,
+      "approx_distinct": 144758308
+    },
+    "upb_pct_of_original_roc_l12m": {
+      "groups": 49949,
+      "exact": false,
+      "approx_distinct": 192457838
+    },
+    "property_value_roc_l3m": {
+      "groups": 49915,
+      "exact": false,
+      "approx_distinct": 270002454
+    },
+    "property_value_roc_l6m": {
+      "groups": 49966,
+      "exact": false,
+      "approx_distinct": 278543092
+    },
+    "property_value_roc_l12m": {
+      "groups": 49972,
+      "exact": false,
+      "approx_distinct": 272419031
+    }
+  },
+  "corr_steps": [
+    {
+      "round": 1,
+      "dropped": "dpd60_streak_l6m",
+      "max_corr": 0.9999999997212422,
+      "with": "dpd60_streak_l12m",
+      "corr": 0.9999999997212422,
+      "median_corr": 0.0215274027967168,
+      "univariate_ap": 0.07034598409394772,
+      "partner_univariate_ap": 0.0704873648265482,
+      "features_left": 61
+    },
+    {
+      "round": 2,
+      "dropped": "dpd60_streak_l3m",
+      "max_corr": 0.999999997165604,
+      "with": "dpd60_streak_l12m",
+      "corr": 0.999999997165604,
+      "median_corr": 0.01978361380055695,
+      "univariate_ap": 0.06984064769804987,
+      "partner_univariate_ap": 0.0704873648265482,
+      "features_left": 60
+    },
+    {
+      "round": 3,
+      "dropped": "dpd30_streak_l12m",
+      "max_corr": 0.9999999584375217,
+      "with": "dpd30_streak_l6m",
+      "corr": 0.9999999584375217,
+      "median_corr": 0.0445014005955178,
+      "univariate_ap": 0.11168000453990559,
+      "partner_univariate_ap": 0.11058994639247652,
+      "features_left": 59
+    },
+    {
+      "round": 4,
+      "dropped": "dpd30_streak_l6m",
+      "max_corr": 0.9999997449877228,
+      "with": "dpd30_streak_l3m",
+      "corr": 0.9999997449877228,
+      "median_corr": 0.040407386048855604,
+      "univariate_ap": 0.11058994639247652,
+      "partner_univariate_ap": 0.10965103403785398,
+      "features_left": 58
+    },
+    {
+      "round": 5,
+      "dropped": "dpd_cnt60_l12m",
+      "max_corr": 0.9999954025378291,
+      "with": "months_since_last_dpd60",
+      "corr": -0.9999954025378291,
+      "median_corr": 0.0291792391748478,
+      "univariate_ap": 0.10267702801284777,
+      "partner_univariate_ap": 0.12381832247108523,
+      "features_left": 57
+    },
+    {
+      "round": 6,
+      "dropped": "dpd30_streak_l3m",
+      "max_corr": 0.9999939160661968,
+      "with": "dpd",
+      "corr": 0.9999939160661968,
+      "median_corr": 0.03314324992959385,
+      "univariate_ap": 0.10965103403785398,
+      "partner_univariate_ap": 0.11990609458945606,
+      "features_left": 56
+    },
+    {
+      "round": 7,
+      "dropped": "original_interest_rate",
+      "max_corr": 0.999993416633962,
+      "with": "current_interest_rate",
+      "corr": 0.999993416633962,
+      "median_corr": 0.0761411387872971,
+      "univariate_ap": 0.023535949140024732,
+      "partner_univariate_ap": 0.023526313939692352,
+      "features_left": 55
+    },
+    {
+      "round": 8,
+      "dropped": "dpd_cnt30_l3m",
+      "max_corr": 0.9999826250600408,
+      "with": "dpd_max_l3m",
+      "corr": 0.9999826250600408,
+      "median_corr": 0.0325107153934499,
+      "univariate_ap": 0.12541393755858946,
+      "partner_univariate_ap": 0.12922289834309508,
+      "features_left": 54
+    },
+    {
+      "round": 9,
+      "dropped": "dpd_cnt30_l6m",
+      "max_corr": 0.9999635893612578,
+      "with": "dpd_max_l6m",
+      "corr": 0.9999635893612578,
+      "median_corr": 0.0306317781525984,
+      "univariate_ap": 0.13394757868730892,
+      "partner_univariate_ap": 0.12609067111119504,
+      "features_left": 53
+    },
+    {
+      "round": 10,
+      "dropped": "dpd_cnt30_l12m",
+      "max_corr": 0.999922132065999,
+      "with": "dpd_max_l12m",
+      "corr": 0.999922132065999,
+      "median_corr": 0.033813003047027196,
+      "univariate_ap": 0.1349033172848222,
+      "partner_univariate_ap": 0.11716764858382854,
+      "features_left": 52
+    },
+    {
+      "round": 11,
+      "dropped": "months_since_last_dpd30",
+      "max_corr": 0.9998554421393596,
+      "with": "dpd_max_l12m",
+      "corr": -0.9998554421393596,
+      "median_corr": 0.0337362666254014,
+      "univariate_ap": 0.1231086160930805,
+      "partner_univariate_ap": 0.11716764858382854,
+      "features_left": 51
+    },
+    {
+      "round": 12,
+      "dropped": "upb_pct_of_original_roc_l6m",
+      "max_corr": 0.9797295941423372,
+      "with": "upb_pct_of_original_roc_l12m",
+      "corr": 0.9797295941423372,
+      "median_corr": 0.0396753300143871,
+      "univariate_ap": 0.02022030247966784,
+      "partner_univariate_ap": 0.01689428782508266,
+      "features_left": 50
+    },
+    {
+      "round": 13,
+      "dropped": "original_loan_to_value",
+      "max_corr": 0.9738191208868155,
+      "with": "original_combined_loan_to_value",
+      "corr": 0.9738191208868155,
+      "median_corr": 0.0255775042269826,
+      "univariate_ap": 0.012449047100419407,
+      "partner_univariate_ap": 0.012827977968816573,
+      "features_left": 49
+    },
+    {
+      "round": 14,
+      "dropped": "dpd_max_l12m",
+      "max_corr": 0.957746846325475,
+      "with": "n_roll_forward_l12m",
+      "corr": 0.957746846325475,
+      "median_corr": 0.0333972408067318,
+      "univariate_ap": 0.11716764858382854,
+      "partner_univariate_ap": 0.12699953881651185,
+      "features_left": 48
+    },
+    {
+      "round": 15,
+      "dropped": "upb_pct_of_original_roc_l3m",
+      "max_corr": 0.940791713496894,
+      "with": "upb_pct_of_original_roc_l12m",
+      "corr": 0.940791713496894,
+      "median_corr": 0.036956162013105,
+      "univariate_ap": 0.023621811467267308,
+      "partner_univariate_ap": 0.01689428782508266,
+      "features_left": 47
+    },
+    {
+      "round": 16,
+      "dropped": "original_upb",
+      "max_corr": 0.911922629191786,
+      "with": "current_actual_upb",
+      "corr": 0.911922629191786,
+      "median_corr": 0.04837216798659555,
+      "univariate_ap": 0.013531509163520554,
+      "partner_univariate_ap": 0.013810382257911459,
+      "features_left": 46
+    },
+    {
+      "round": 17,
+      "dropped": "dpd_max_l6m",
+      "max_corr": 0.9040201469451,
+      "with": "n_roll_forward_l6m",
+      "corr": 0.9040201469451,
+      "median_corr": 0.0270381316731251,
+      "univariate_ap": 0.12609067111119504,
+      "partner_univariate_ap": 0.10705008251953932,
+      "features_left": 45
+    },
+    {
+      "round": 18,
+      "dropped": "n_curtail_l6m",
+      "max_corr": 0.8930916439974074,
+      "with": "n_curtail_l12m",
+      "corr": 0.8930916439974074,
+      "median_corr": 0.01658818962709055,
+      "univariate_ap": 0.010139365040298842,
+      "partner_univariate_ap": 0.011236306523938097,
+      "features_left": 44
+    },
+    {
+      "round": 19,
+      "dropped": "n_roll_forward_l12m",
+      "max_corr": 0.8870138679541786,
+      "with": "n_cure_l12m",
+      "corr": 0.8870138679541786,
+      "median_corr": 0.0302406941619049,
+      "univariate_ap": 0.12699953881651185,
+      "partner_univariate_ap": 0.04978318600405782,
+      "features_left": 43
+    },
+    {
+      "round": 20,
+      "dropped": "loan_age",
+      "max_corr": 0.8635544893987722,
+      "with": "upb_pct_of_original",
+      "corr": -0.8635544893987722,
+      "median_corr": 0.04923024337766805,
+      "univariate_ap": 0.016518015845756608,
+      "partner_univariate_ap": 0.012043813631394258,
+      "features_left": 42
+    },
+    {
+      "round": 21,
+      "dropped": "dpd_cnt60_l6m",
+      "max_corr": 0.8359742247094869,
+      "with": "dpd_cnt60_l3m",
+      "corr": 0.8359742247094869,
+      "median_corr": 0.0157538255965748,
+      "univariate_ap": 0.09962449215498256,
+      "partner_univariate_ap": 0.09050202842406291,
+      "features_left": 41
+    },
+    {
+      "round": 22,
+      "dropped": "dpd_max_l3m",
+      "max_corr": 0.8350930526049871,
+      "with": "n_roll_forward_l6m",
+      "corr": 0.8350930526049871,
+      "median_corr": 0.0232328598046827,
+      "univariate_ap": 0.12922289834309508,
+      "partner_univariate_ap": 0.10705008251953932,
+      "features_left": 40
+    },
+    {
+      "round": 23,
+      "dropped": "ltv_ratio_to_original",
+      "max_corr": 0.8345292328000454,
+      "with": "property_value_change",
+      "corr": -0.8345292328000454,
+      "median_corr": 0.070793895989719,
+      "univariate_ap": 0.010990477605302883,
+      "partner_univariate_ap": 0.011444657823901942,
+      "features_left": 39
+    },
+    {
+      "round": 24,
+      "dropped": "estimated_loan_to_value",
+      "max_corr": 0.8100033914685991,
+      "with": "ltv_x_dti",
+      "corr": 0.8100033914685991,
+      "median_corr": 0.1045031618029143,
+      "univariate_ap": 0.01231837770640196,
+      "partner_univariate_ap": 0.011713096777508848,
+      "features_left": 38
+    }
+  ]
+}

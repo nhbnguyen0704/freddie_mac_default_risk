@@ -1,0 +1,522 @@
+{
+  "meta": {
+    "split": {
+      "dev_end": "2022-09",
+      "end_ym": 202209,
+      "valid_share": 0.2,
+      "salt": "gbm_valid",
+      "unit": "loan_identifier",
+      "training_set": "hdfs://localhost:9000/user/binhn/fre/curated/training_set",
+      "first_month": "2016-01"
+    },
+    "features": [
+      "current_actual_upb",
+      "current_interest_rate",
+      "remaining_months_to_legal_maturity",
+      "classic_fico",
+      "mortgage_insurance_percentage",
+      "number_of_units",
+      "original_combined_loan_to_value",
+      "original_debt_to_income_ratio",
+      "original_loan_term",
+      "number_of_borrowers",
+      "dpd",
+      "months_since_last_dpd60",
+      "current_streak_l3m",
+      "current_streak_l6m",
+      "current_streak_l12m",
+      "n_cure_l3m",
+      "n_roll_forward_l6m",
+      "n_cure_l6m",
+      "n_cure_l12m",
+      "n_curtail_l3m",
+      "n_curtail_l12m",
+      "servicer_changed_l12m",
+      "ltv_x_dti",
+      "upb_pct_of_original",
+      "estimated_property_value",
+      "property_value_change",
+      "upb_pct_of_original_roc_l12m",
+      "property_value_roc_l3m",
+      "property_value_roc_l12m",
+      "servicer_name",
+      "metropolitan_statistical_area_or_metropolitan_division",
+      "occupancy_status",
+      "property_state",
+      "property_type",
+      "postal_code",
+      "loan_purpose",
+      "seller_name",
+      "property_valuation_method"
+    ],
+    "sample": {
+      "path": "file:///Users/binhn/Desktop/NUS-ISS/Predictive_Analytic_Lifecycle_GC/Practice_module/test_freddie_mac_default_risk/development/data/curated/gbm_tuning_sample",
+      "goods_fraction": 0.02,
+      "features": [
+        "current_actual_upb",
+        "current_interest_rate",
+        "remaining_months_to_legal_maturity",
+        "classic_fico",
+        "mortgage_insurance_percentage",
+        "number_of_units",
+        "original_combined_loan_to_value",
+        "original_debt_to_income_ratio",
+        "original_loan_term",
+        "number_of_borrowers",
+        "dpd",
+        "months_since_last_dpd60",
+        "current_streak_l3m",
+        "current_streak_l6m",
+        "current_streak_l12m",
+        "n_cure_l3m",
+        "n_roll_forward_l6m",
+        "n_cure_l6m",
+        "n_cure_l12m",
+        "n_curtail_l3m",
+        "n_curtail_l12m",
+        "servicer_changed_l12m",
+        "ltv_x_dti",
+        "upb_pct_of_original",
+        "estimated_property_value",
+        "property_value_change",
+        "upb_pct_of_original_roc_l12m",
+        "property_value_roc_l3m",
+        "property_value_roc_l12m",
+        "servicer_name",
+        "metropolitan_statistical_area_or_metropolitan_division",
+        "occupancy_status",
+        "property_state",
+        "property_type",
+        "postal_code",
+        "loan_purpose",
+        "seller_name",
+        "property_valuation_method"
+      ],
+      "counts": {
+        "valid": {
+          "rows": 3319892.0,
+          "bads": 1031135.0,
+          "weighted_rows": 115468985.0
+        },
+        "train": {
+          "rows": 13239314.0,
+          "bads": 4107395.0,
+          "weighted_rows": 460703345.0
+        }
+      },
+      "train_months": null
+    },
+    "target_rate": 0.014640741393251057,
+    "n_trials": 30,
+    "num_rounds": 2000,
+    "early_stopping": 50,
+    "storage": "sqlite:////Users/binhn/Desktop/NUS-ISS/Predictive_Analytic_Lifecycle_GC/Practice_module/test_freddie_mac_default_risk/development/artifacts/gbm_tuning.db",
+    "generated": "2026-10-06T22:32:20",
+    "source": "src/jobs/15_gbm_tuning_main.py"
+  },
+  "versions": {
+    "baseline": {
+      "label": "logloss, no reweighting",
+      "kind": "none",
+      "half_life_months": null,
+      "trials_complete": 7,
+      "trials_pruned": 23,
+      "best_trial": 19,
+      "best_params": {
+        "learning_rate": 0.03835891217535696,
+        "max_depth": 8,
+        "min_child_weight": 69.3956590817337,
+        "subsample": 0.8684049470210671,
+        "colsample_bytree": 0.4356493977936179,
+        "gamma": 0.9128627257435811,
+        "reg_lambda": 49.501443485086334,
+        "reg_alpha": 0.03532859809838012
+      },
+      "valid_ap_sample": 0.2690463827686024,
+      "best_iteration": 445,
+      "full": {
+        "test": {
+          "rows": 187470934,
+          "bads": 2240522,
+          "bad_rate": 0.011951303341775637,
+          "average_precision": 0.20773647977208348
+        },
+        "train": {
+          "rows": 460914721,
+          "bads": 4107395,
+          "bad_rate": 0.008911399035137348,
+          "average_precision": 0.2992194635884316
+        },
+        "valid": {
+          "rows": 115353351,
+          "bads": 1031135,
+          "bad_rate": 0.008938925406683678,
+          "average_precision": 0.26627596205155446
+        }
+      }
+    },
+    "scale_pos_weight": {
+      "label": "logloss, scale_pos_weight tuned",
+      "kind": "spw",
+      "half_life_months": null,
+      "trials_complete": 15,
+      "trials_pruned": 15,
+      "best_trial": 25,
+      "best_params": {
+        "learning_rate": 0.0812308876126939,
+        "max_depth": 8,
+        "min_child_weight": 9.308714991898096,
+        "subsample": 0.5769811663161917,
+        "colsample_bytree": 0.48651729154778073,
+        "gamma": 3.8727911312817733,
+        "reg_lambda": 0.01006531688040405,
+        "reg_alpha": 0.10152566841475866,
+        "scale_pos_weight": 4.054740948422962
+      },
+      "valid_ap_sample": 0.2678996617985185,
+      "best_iteration": 255,
+      "full": {
+        "test": {
+          "rows": 187470934,
+          "bads": 2240522,
+          "bad_rate": 0.011951303341775637,
+          "average_precision": 0.2076574996985009
+        },
+        "train": {
+          "rows": 460914721,
+          "bads": 4107395,
+          "bad_rate": 0.008911399035137348,
+          "average_precision": 0.30403566459719966
+        },
+        "valid": {
+          "rows": 115353351,
+          "bads": 1031135,
+          "bad_rate": 0.008938925406683678,
+          "average_precision": 0.26418300120789345
+        }
+      }
+    },
+    "focal_loss": {
+      "label": "focal loss, alpha and gamma tuned",
+      "kind": "focal",
+      "half_life_months": null,
+      "trials_complete": 29,
+      "trials_pruned": 1,
+      "best_trial": 6,
+      "best_params": {
+        "learning_rate": 0.06088969708783845,
+        "max_depth": 6,
+        "min_child_weight": 9.839865732284492,
+        "subsample": 0.7840376864606234,
+        "colsample_bytree": 0.4571707969366891,
+        "gamma": 3.989887424255942,
+        "reg_lambda": 0.022043566023621196,
+        "reg_alpha": 4.4224166016176865,
+        "focal_alpha": 0.861569581699272,
+        "focal_gamma": 0.07928900175631914
+      },
+      "valid_ap_sample": 0.2604314662332479,
+      "best_iteration": 861,
+      "full": {
+        "test": {
+          "rows": 187470934,
+          "bads": 2240522,
+          "bad_rate": 0.011951303341775637,
+          "average_precision": 0.1981458497428705
+        },
+        "train": {
+          "rows": 460914721,
+          "bads": 4107395,
+          "bad_rate": 0.008911399035137348,
+          "average_precision": 0.2898414463084841
+        },
+        "valid": {
+          "rows": 115353351,
+          "bads": 1031135,
+          "bad_rate": 0.008938925406683678,
+          "average_precision": 0.25753778022836077
+        }
+      }
+    },
+    "recency_6": {
+      "label": "recency weight, half-life 6 months",
+      "kind": "recency",
+      "half_life_months": 6,
+      "trials_complete": 16,
+      "trials_pruned": 14,
+      "best_trial": 25,
+      "best_params": {
+        "learning_rate": 0.08761288783225948,
+        "max_depth": 4,
+        "min_child_weight": 387.4241666585499,
+        "subsample": 0.6121166412512808,
+        "colsample_bytree": 0.611395688376265,
+        "gamma": 3.272634027199247,
+        "reg_lambda": 0.0065652908763200405,
+        "reg_alpha": 0.0010452459290776386
+      },
+      "valid_ap_sample": 0.23899116451079735,
+      "best_iteration": 279,
+      "full": {
+        "test": {
+          "rows": 187470934,
+          "bads": 2240522,
+          "bad_rate": 0.011951303341775637,
+          "average_precision": 0.20277852072436636
+        },
+        "train": {
+          "rows": 460914721,
+          "bads": 4107395,
+          "bad_rate": 0.008911399035137348,
+          "average_precision": 0.24219689695773292
+        },
+        "valid": {
+          "rows": 115353351,
+          "bads": 1031135,
+          "bad_rate": 0.008938925406683678,
+          "average_precision": 0.236018933937567
+        }
+      }
+    },
+    "recency_12": {
+      "label": "recency weight, half-life 12 months",
+      "kind": "recency",
+      "half_life_months": 12,
+      "trials_complete": 9,
+      "trials_pruned": 21,
+      "best_trial": 19,
+      "best_params": {
+        "learning_rate": 0.03649321285699251,
+        "max_depth": 9,
+        "min_child_weight": 9.996837566987944,
+        "subsample": 0.7868890933486345,
+        "colsample_bytree": 0.40550513435305646,
+        "gamma": 0.18350678146588706,
+        "reg_lambda": 6.290692869549733,
+        "reg_alpha": 6.614043508449413
+      },
+      "valid_ap_sample": 0.2588327207753305,
+      "best_iteration": 394,
+      "full": {
+        "test": {
+          "rows": 187470934,
+          "bads": 2240522,
+          "bad_rate": 0.011951303341775637,
+          "average_precision": 0.21738849363007845
+        },
+        "train": {
+          "rows": 460914721,
+          "bads": 4107395,
+          "bad_rate": 0.008911399035137348,
+          "average_precision": 0.28112380852163354
+        },
+        "valid": {
+          "rows": 115353351,
+          "bads": 1031135,
+          "bad_rate": 0.008938925406683678,
+          "average_precision": 0.2564476609810687
+        }
+      }
+    },
+    "recency_25": {
+      "label": "recency weight, half-life 25 months",
+      "kind": "recency",
+      "half_life_months": 25,
+      "trials_complete": 14,
+      "trials_pruned": 16,
+      "best_trial": 24,
+      "best_params": {
+        "learning_rate": 0.0324931617710981,
+        "max_depth": 7,
+        "min_child_weight": 295.84893839522664,
+        "subsample": 0.8629253237123028,
+        "colsample_bytree": 0.75921337629991,
+        "gamma": 2.9457620617977565,
+        "reg_lambda": 0.08370888508747523,
+        "reg_alpha": 0.007809366091938871
+      },
+      "valid_ap_sample": 0.2622875356864481,
+      "best_iteration": 417,
+      "full": {
+        "test": {
+          "rows": 187470934,
+          "bads": 2240522,
+          "bad_rate": 0.011951303341775637,
+          "average_precision": 0.20981191980764027
+        },
+        "train": {
+          "rows": 460914721,
+          "bads": 4107395,
+          "bad_rate": 0.008911399035137348,
+          "average_precision": 0.2833059990488774
+        },
+        "valid": {
+          "rows": 115353351,
+          "bads": 1031135,
+          "bad_rate": 0.008938925406683678,
+          "average_precision": 0.25971743480660764
+        }
+      }
+    },
+    "oversample": {
+      "label": "random oversampling of bads in lower-rate months",
+      "kind": "oversample",
+      "half_life_months": null,
+      "trials_complete": 16,
+      "trials_pruned": 14,
+      "best_trial": 13,
+      "best_params": {
+        "learning_rate": 0.039332133991276566,
+        "max_depth": 6,
+        "min_child_weight": 649.8417606806913,
+        "subsample": 0.817984768653452,
+        "colsample_bytree": 0.4261456799210003,
+        "gamma": 1.048989347519925,
+        "reg_lambda": 0.007213922270536111,
+        "reg_alpha": 0.2203468436354773
+      },
+      "valid_ap_sample": 0.2638265998056255,
+      "best_iteration": 1035,
+      "full": {
+        "test": {
+          "rows": 187470934,
+          "bads": 2240522,
+          "bad_rate": 0.011951303341775637,
+          "average_precision": 0.20836493776686837
+        },
+        "train": {
+          "rows": 460914721,
+          "bads": 4107395,
+          "bad_rate": 0.008911399035137348,
+          "average_precision": 0.2870717314264902
+        },
+        "valid": {
+          "rows": 115353351,
+          "bads": 1031135,
+          "bad_rate": 0.008938925406683678,
+          "average_precision": 0.2606541738793626
+        }
+      }
+    },
+    "undersample": {
+      "label": "random undersampling of goods in lower-rate months",
+      "kind": "undersample",
+      "half_life_months": null,
+      "trials_complete": 14,
+      "trials_pruned": 16,
+      "best_trial": 16,
+      "best_params": {
+        "learning_rate": 0.03455484907793605,
+        "max_depth": 7,
+        "min_child_weight": 20.06590407091214,
+        "subsample": 0.88669260853512,
+        "colsample_bytree": 0.7896260525423002,
+        "gamma": 2.387509012175242,
+        "reg_lambda": 84.37030339912684,
+        "reg_alpha": 2.2372634648534184
+      },
+      "valid_ap_sample": 0.2615278454381866,
+      "best_iteration": 280,
+      "full": {
+        "test": {
+          "rows": 187470934,
+          "bads": 2240522,
+          "bad_rate": 0.011951303341775637,
+          "average_precision": 0.20399349077704737
+        },
+        "train": {
+          "rows": 460914721,
+          "bads": 4107395,
+          "bad_rate": 0.008911399035137348,
+          "average_precision": 0.28189859074850054
+        },
+        "valid": {
+          "rows": 115353351,
+          "bads": 1031135,
+          "bad_rate": 0.008938925406683678,
+          "average_precision": 0.25865036527594426
+        }
+      }
+    },
+    "smoteenn": {
+      "label": "SMOTE then edited nearest neighbours (train split, per month)",
+      "kind": "smoteenn",
+      "half_life_months": null,
+      "trials_complete": 12,
+      "trials_pruned": 18,
+      "best_trial": 1,
+      "best_params": {
+        "learning_rate": 0.17284544646135283,
+        "max_depth": 5,
+        "min_child_weight": 10.955283323575756,
+        "subsample": 0.6758824087482812,
+        "colsample_bytree": 0.487280113897693,
+        "gamma": 4.863323423587252,
+        "reg_lambda": 35.1473179368269,
+        "reg_alpha": 0.17371143778154366
+      },
+      "valid_ap_sample": 0.2428813344873447,
+      "best_iteration": 929,
+      "full": {
+        "test": {
+          "rows": 187470934,
+          "bads": 2240522,
+          "bad_rate": 0.011951303341775637,
+          "average_precision": 0.1456680108583664
+        },
+        "train": {
+          "rows": 460914721,
+          "bads": 4107395,
+          "bad_rate": 0.008911399035137348,
+          "average_precision": 0.2502722483399294
+        },
+        "valid": {
+          "rows": 115353351,
+          "bads": 1031135,
+          "bad_rate": 0.008938925406683678,
+          "average_precision": 0.23857930751995476
+        }
+      }
+    },
+    "smotetomek": {
+      "label": "SMOTE then Tomek links (train split, per month)",
+      "kind": "smotetomek",
+      "half_life_months": null,
+      "trials_complete": 29,
+      "trials_pruned": 1,
+      "best_trial": 19,
+      "best_params": {
+        "learning_rate": 0.03121357456634876,
+        "max_depth": 9,
+        "min_child_weight": 183.68007252756308,
+        "subsample": 0.6215367236320782,
+        "colsample_bytree": 0.41315963382096,
+        "gamma": 3.654309500732886,
+        "reg_lambda": 0.051770537451110675,
+        "reg_alpha": 5.077914550304826
+      },
+      "valid_ap_sample": 0.22789473372519767,
+      "best_iteration": 58,
+      "full": {
+        "test": {
+          "rows": 187470934,
+          "bads": 2240522,
+          "bad_rate": 0.011951303341775637,
+          "average_precision": 0.17140147401720632
+        },
+        "train": {
+          "rows": 460914721,
+          "bads": 4107395,
+          "bad_rate": 0.008911399035137348,
+          "average_precision": 0.23188131490546307
+        },
+        "valid": {
+          "rows": 115353351,
+          "bads": 1031135,
+          "bad_rate": 0.008938925406683678,
+          "average_precision": 0.22553871784664897
+        }
+      }
+    }
+  }
+}

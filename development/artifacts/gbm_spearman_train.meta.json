@@ -1,0 +1,340 @@
+{
+  "train_rows": 460914721,
+  "masks": {
+    "remaining_months_to_legal_maturity": "remaining_months_to_legal_maturity",
+    "estimated_loan_to_value": "estimated_loan_to_value",
+    "classic_fico": "classic_fico",
+    "mortgage_insurance_percentage": "mortgage_insurance_percentage",
+    "number_of_units": "number_of_units",
+    "original_combined_loan_to_value": "original_combined_loan_to_value",
+    "original_debt_to_income_ratio": "original_debt_to_income_ratio",
+    "original_loan_to_value": "original_loan_to_value",
+    "number_of_borrowers": "number_of_borrowers",
+    "current_interest_rate_roc_l3m": "current_interest_rate_roc_l3m",
+    "current_interest_rate_roc_l6m": "current_interest_rate_roc_l6m",
+    "current_interest_rate_roc_l12m": "current_interest_rate_roc_l12m",
+    "ltv_x_dti": "ltv_x_dti",
+    "ltv_ratio_to_original": "ltv_ratio_to_original",
+    "negative_equity_flag": "estimated_loan_to_value",
+    "estimated_property_value": "estimated_property_value",
+    "property_value_change": "property_value_change",
+    "upb_pct_of_original_roc_l3m": "upb_pct_of_original_roc_l3m",
+    "upb_pct_of_original_roc_l6m": "upb_pct_of_original_roc_l6m",
+    "upb_pct_of_original_roc_l12m": "upb_pct_of_original_roc_l12m",
+    "property_value_roc_l3m": "property_value_roc_l3m",
+    "property_value_roc_l6m": "property_value_roc_l6m",
+    "property_value_roc_l12m": "property_value_roc_l12m"
+  },
+  "rank_groups": {
+    "loan_age": {
+      "groups": 285,
+      "exact": true,
+      "approx_distinct": 286
+    },
+    "current_actual_upb": {
+      "groups": 42969,
+      "exact": false,
+      "approx_distinct": 46464298
+    },
+    "current_interest_rate": {
+      "groups": 5188,
+      "exact": true,
+      "approx_distinct": 5146
+    },
+    "remaining_months_to_legal_maturity": {
+      "groups": 624,
+      "exact": true,
+      "approx_distinct": 632
+    },
+    "estimated_loan_to_value": {
+      "groups": 707,
+      "exact": true,
+      "approx_distinct": 710
+    },
+    "classic_fico": {
+      "groups": 441,
+      "exact": true,
+      "approx_distinct": 442
+    },
+    "mortgage_insurance_percentage": {
+      "groups": 56,
+      "exact": true,
+      "approx_distinct": 54
+    },
+    "number_of_units": {
+      "groups": 4,
+      "exact": true,
+      "approx_distinct": 4
+    },
+    "original_combined_loan_to_value": {
+      "groups": 610,
+      "exact": true,
+      "approx_distinct": 616
+    },
+    "original_debt_to_income_ratio": {
+      "groups": 65,
+      "exact": true,
+      "approx_distinct": 63
+    },
+    "original_upb": {
+      "groups": 1344,
+      "exact": true,
+      "approx_distinct": 1347
+    },
+    "original_loan_to_value": {
+      "groups": 543,
+      "exact": true,
+      "approx_distinct": 549
+    },
+    "original_interest_rate": {
+      "groups": 5187,
+      "exact": true,
+      "approx_distinct": 5146
+    },
+    "original_loan_term": {
+      "groups": 317,
+      "exact": true,
+      "approx_distinct": 319
+    },
+    "number_of_borrowers": {
+      "groups": 6,
+      "exact": true,
+      "approx_distinct": 6
+    },
+    "dpd_max_l3m": {
+      "groups": 100,
+      "exact": true,
+      "approx_distinct": 100
+    },
+    "dpd_cnt30_l3m": {
+      "groups": 4,
+      "exact": true,
+      "approx_distinct": 4
+    },
+    "dpd_cnt60_l3m": {
+      "groups": 4,
+      "exact": true,
+      "approx_distinct": 4
+    },
+    "dpd_max_l6m": {
+      "groups": 100,
+      "exact": true,
+      "approx_distinct": 100
+    },
+    "dpd_cnt30_l6m": {
+      "groups": 7,
+      "exact": true,
+      "approx_distinct": 7
+    },
+    "dpd_cnt60_l6m": {
+      "groups": 7,
+      "exact": true,
+      "approx_distinct": 7
+    },
+    "dpd_max_l12m": {
+      "groups": 100,
+      "exact": true,
+      "approx_distinct": 100
+    },
+    "dpd_cnt30_l12m": {
+      "groups": 13,
+      "exact": true,
+      "approx_distinct": 13
+    },
+    "dpd_cnt60_l12m": {
+      "groups": 13,
+      "exact": true,
+      "approx_distinct": 13
+    },
+    "current_interest_rate_roc_l3m": {
+      "groups": 95,
+      "exact": true,
+      "approx_distinct": 94
+    },
+    "current_interest_rate_roc_l6m": {
+      "groups": 132,
+      "exact": true,
+      "approx_distinct": 132
+    },
+    "current_interest_rate_roc_l12m": {
+      "groups": 221,
+      "exact": true,
+      "approx_distinct": 222
+    },
+    "dpd": {
+      "groups": 3,
+      "exact": true,
+      "approx_distinct": 3
+    },
+    "months_since_last_dpd30": {
+      "groups": 13,
+      "exact": true,
+      "approx_distinct": 13
+    },
+    "months_since_last_dpd60": {
+      "groups": 13,
+      "exact": true,
+      "approx_distinct": 13
+    },
+    "current_streak_l3m": {
+      "groups": 4,
+      "exact": true,
+      "approx_distinct": 4
+    },
+    "dpd30_streak_l3m": {
+      "groups": 4,
+      "exact": true,
+      "approx_distinct": 4
+    },
+    "dpd60_streak_l3m": {
+      "groups": 4,
+      "exact": true,
+      "approx_distinct": 4
+    },
+    "current_streak_l6m": {
+      "groups": 7,
+      "exact": true,
+      "approx_distinct": 7
+    },
+    "dpd30_streak_l6m": {
+      "groups": 7,
+      "exact": true,
+      "approx_distinct": 7
+    },
+    "dpd60_streak_l6m": {
+      "groups": 7,
+      "exact": true,
+      "approx_distinct": 7
+    },
+    "current_streak_l12m": {
+      "groups": 13,
+      "exact": true,
+      "approx_distinct": 13
+    },
+    "dpd30_streak_l12m": {
+      "groups": 13,
+      "exact": true,
+      "approx_distinct": 13
+    },
+    "dpd60_streak_l12m": {
+      "groups": 13,
+      "exact": true,
+      "approx_distinct": 13
+    },
+    "n_roll_forward_l3m": {
+      "groups": 3,
+      "exact": true,
+      "approx_distinct": 3
+    },
+    "n_cure_l3m": {
+      "groups": 2,
+      "exact": true,
+      "approx_distinct": 2
+    },
+    "n_roll_forward_l6m": {
+      "groups": 5,
+      "exact": true,
+      "approx_distinct": 5
+    },
+    "n_cure_l6m": {
+      "groups": 4,
+      "exact": true,
+      "approx_distinct": 4
+    },
+    "n_roll_forward_l12m": {
+      "groups": 11,
+      "exact": true,
+      "approx_distinct": 11
+    },
+    "n_cure_l12m": {
+      "groups": 7,
+      "exact": true,
+      "approx_distinct": 7
+    },
+    "n_curtail_l3m": {
+      "groups": 3,
+      "exact": true,
+      "approx_distinct": 3
+    },
+    "n_curtail_l6m": {
+      "groups": 6,
+      "exact": true,
+      "approx_distinct": 6
+    },
+    "n_curtail_l12m": {
+      "groups": 12,
+      "exact": true,
+      "approx_distinct": 12
+    },
+    "servicer_changed_l12m": {
+      "groups": 2,
+      "exact": true,
+      "approx_distinct": 2
+    },
+    "rate_gap": {
+      "groups": 109,
+      "exact": true,
+      "approx_distinct": 108
+    },
+    "ltv_x_dti": {
+      "groups": 7297,
+      "exact": true,
+      "approx_distinct": 7428
+    },
+    "upb_pct_of_original": {
+      "groups": 44004,
+      "exact": false,
+      "approx_distinct": 220210582
+    },
+    "ltv_ratio_to_original": {
+      "groups": 37430,
+      "exact": true,
+      "approx_distinct": 37444
+    },
+    "negative_equity_flag": {
+      "groups": 2,
+      "exact": true,
+      "approx_distinct": 2
+    },
+    "estimated_property_value": {
+      "groups": 49407,
+      "exact": false,
+      "approx_distinct": 213997397
+    },
+    "property_value_change": {
+      "groups": 49320,
+      "exact": false,
+      "approx_distinct": 269992177
+    },
+    "upb_pct_of_original_roc_l3m": {
+      "groups": 49888,
+      "exact": false,
+      "approx_distinct": 98570731
+    },
+    "upb_pct_of_original_roc_l6m": {
+      "groups": 49945,
+      "exact": false,
+      "approx_distinct": 144758308
+    },
+    "upb_pct_of_original_roc_l12m": {
+      "groups": 49949,
+      "exact": false,
+      "approx_distinct": 192457838
+    },
+    "property_value_roc_l3m": {
+      "groups": 49915,
+      "exact": false,
+      "approx_distinct": 270002454
+    },
+    "property_value_roc_l6m": {
+      "groups": 49966,
+      "exact": false,
+      "approx_distinct": 278543092
+    },
+    "property_value_roc_l12m": {
+      "groups": 49972,
+      "exact": false,
+      "approx_distinct": 272419031
+    }
+  }
+}

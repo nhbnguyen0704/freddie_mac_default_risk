@@ -1,0 +1,1088 @@
+{
+  "meta": {
+    "best": {
+      "lr": "recency_6",
+      "xgb": "recency_12",
+      "rf": "undersample"
+    },
+    "split": {
+      "dev_end": "2022-09",
+      "end_ym": 202209,
+      "valid_share": 0.2,
+      "salt": "gbm_valid",
+      "unit": "loan_identifier",
+      "training_set": "hdfs://localhost:9000/user/binhn/fre/curated/training_set",
+      "first_month": "2016-01"
+    },
+    "max_depth": 3,
+    "min_leaf_share": 0.01,
+    "min_cat_bads": 500,
+    "source": "src/jobs/19_error_analysis_main.py",
+    "generated": "2026-10-11T17:32:01"
+  },
+  "bads": 2240522,
+  "features": [
+    "channel",
+    "classic_fico",
+    "current_actual_upb",
+    "current_interest_rate",
+    "current_streak_l12m",
+    "current_streak_l3m",
+    "current_streak_l6m",
+    "dpd",
+    "dpd60_streak_l12m",
+    "dpd_cnt30_l3m",
+    "dpd_cnt60_l3m",
+    "estimated_property_value",
+    "harp_indicator",
+    "loan_age",
+    "loan_purpose",
+    "ltv_x_dti",
+    "metropolitan_statistical_area_or_metropolitan_division",
+    "months_since_last_dpd60",
+    "mortgage_insurance_percentage",
+    "n_cure_l12m",
+    "n_cure_l3m",
+    "n_cure_l6m",
+    "n_curtail_l12m",
+    "n_curtail_l3m",
+    "n_roll_forward_l3m",
+    "n_roll_forward_l6m",
+    "number_of_borrowers",
+    "number_of_units",
+    "occupancy_status",
+    "original_combined_loan_to_value",
+    "original_debt_to_income_ratio",
+    "original_interest_rate",
+    "original_loan_term",
+    "original_loan_to_value",
+    "original_upb",
+    "postal_code",
+    "property_state",
+    "property_type",
+    "property_valuation_method",
+    "property_value_change",
+    "property_value_roc_l12m",
+    "property_value_roc_l3m",
+    "remaining_months_to_legal_maturity",
+    "seller_name",
+    "servicer_changed_l12m",
+    "servicer_name",
+    "upb_pct_of_original",
+    "upb_pct_of_original_roc_l12m",
+    "upb_pct_of_original_roc_l3m"
+  ],
+  "thresholds": {
+    "lr": {
+      "threshold": -2.474,
+      "f1": 0.23891193599283675,
+      "precision": 0.2592897749388327,
+      "recall": 0.22150373886085475,
+      "flagged": 1914013,
+      "flagged_share": 0.010209652019976602,
+      "true_positives": 496284,
+      "missed_bads": 1744238
+    },
+    "xgb": {
+      "threshold": -2.0753,
+      "f1": 0.28000421369013917,
+      "precision": 0.31863665484986975,
+      "recall": 0.2497266262058574,
+      "flagged": 1755975,
+      "flagged_share": 0.009366652005905087,
+      "true_positives": 559518,
+      "missed_bads": 1681004
+    },
+    "rf": {
+      "threshold": 0.160507,
+      "f1": 0.26176123469383084,
+      "precision": 0.30411958201590833,
+      "recall": 0.22975985060624265,
+      "flagged": 1692696,
+      "flagged_share": 0.00902911168085395,
+      "true_positives": 514782,
+      "missed_bads": 1725740
+    }
+  },
+  "overlap": [
+    {
+      "missed by": "lr, xgb, rf",
+      "bads": 1603400,
+      "share of bads": 0.7156368024951328
+    },
+    {
+      "missed by": "none",
+      "bads": 413150,
+      "share of bads": 0.1843989927347288
+    },
+    {
+      "missed by": "lr",
+      "bads": 64509,
+      "share of bads": 0.02879195116138114
+    },
+    {
+      "missed by": "lr, rf",
+      "bads": 58602,
+      "share of bads": 0.02615551197444167
+    },
+    {
+      "missed by": "xgb, rf",
+      "bads": 40481,
+      "share of bads": 0.018067664588877055
+    },
+    {
+      "missed by": "rf",
+      "bads": 23257,
+      "share of bads": 0.010380170335305791
+    },
+    {
+      "missed by": "xgb",
+      "bads": 19396,
+      "share of bads": 0.008656911201943118
+    },
+    {
+      "missed by": "lr, xgb",
+      "bads": 17727,
+      "share of bads": 0.00791199550818961
+    }
+  ],
+  "trees": {
+    "lr": {
+      "auc": 0.9862315939943253,
+      "leaves": [
+        {
+          "rule": "dpd_cnt30_l3m <= 0.5 or missing AND classic_fico > 677.5 or missing AND n_cure_l12m <= 0.5 or missing",
+          "bads": 1191953,
+          "missed": 1189488,
+          "miss_rate": 0.9979319654382346,
+          "share_of_misses": 0.6819528068990585,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": true
+            },
+            "classic_fico": {
+              "lo": 677.5,
+              "hi": Infinity,
+              "missing": true
+            },
+            "n_cure_l12m": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": true
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m <= 0.5 or missing AND classic_fico <= 677.5 AND original_interest_rate <= 5.494 or missing",
+          "bads": 295087,
+          "missed": 289153,
+          "miss_rate": 0.9798906763090207,
+          "share_of_misses": 0.16577611541544215,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": true
+            },
+            "classic_fico": {
+              "lo": -Infinity,
+              "hi": 677.5,
+              "missing": false
+            },
+            "original_interest_rate": {
+              "lo": -Infinity,
+              "hi": 5.494499921798706,
+              "missing": true
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m <= 0.5 or missing AND classic_fico > 677.5 or missing AND n_cure_l12m > 0.5",
+          "bads": 114299,
+          "missed": 110494,
+          "miss_rate": 0.9667101199485559,
+          "share_of_misses": 0.06334800640738247,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": true
+            },
+            "classic_fico": {
+              "lo": 677.5,
+              "hi": Infinity,
+              "missing": true
+            },
+            "n_cure_l12m": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": false
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m <= 0.5 or missing AND classic_fico <= 677.5 AND original_interest_rate > 5.494",
+          "bads": 113594,
+          "missed": 96859,
+          "miss_rate": 0.8526770780146838,
+          "share_of_misses": 0.05553083925473473,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": true
+            },
+            "classic_fico": {
+              "lo": -Infinity,
+              "hi": 677.5,
+              "missing": false
+            },
+            "original_interest_rate": {
+              "lo": 5.494499921798706,
+              "hi": Infinity,
+              "missing": false
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m > 0.5 AND classic_fico > 758.5 AND ltv_x_dti <= 18.89",
+          "bads": 29353,
+          "missed": 20141,
+          "miss_rate": 0.6861649575852553,
+          "share_of_misses": 0.011547162715179924,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": false
+            },
+            "classic_fico": {
+              "lo": 758.5,
+              "hi": Infinity,
+              "missing": false
+            },
+            "ltv_x_dti": {
+              "lo": -Infinity,
+              "hi": 18.889999389648438,
+              "missing": false
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m > 0.5 AND classic_fico > 758.5 AND ltv_x_dti > 18.89 or missing",
+          "bads": 45635,
+          "missed": 14623,
+          "miss_rate": 0.3204338775063,
+          "share_of_misses": 0.008383603613727026,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": false
+            },
+            "classic_fico": {
+              "lo": 758.5,
+              "hi": Infinity,
+              "missing": false
+            },
+            "ltv_x_dti": {
+              "lo": 18.889999389648438,
+              "hi": Infinity,
+              "missing": true
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m > 0.5 AND classic_fico <= 758.5 or missing AND number_of_borrowers > 1.5",
+          "bads": 133757,
+          "missed": 17390,
+          "miss_rate": 0.13001188722833198,
+          "share_of_misses": 0.0099699696945027,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": false
+            },
+            "classic_fico": {
+              "lo": -Infinity,
+              "hi": 758.5,
+              "missing": true
+            },
+            "number_of_borrowers": {
+              "lo": 1.5,
+              "hi": Infinity,
+              "missing": false
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m > 0.5 AND classic_fico <= 758.5 or missing AND number_of_borrowers <= 1.5 or missing",
+          "bads": 316844,
+          "missed": 6090,
+          "miss_rate": 0.01922081529080557,
+          "share_of_misses": 0.003491495999972481,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": false
+            },
+            "classic_fico": {
+              "lo": -Infinity,
+              "hi": 758.5,
+              "missing": true
+            },
+            "number_of_borrowers": {
+              "lo": -Infinity,
+              "hi": 1.5,
+              "missing": true
+            }
+          }
+        }
+      ],
+      "text": "|--- dpd_cnt30_l3m <= 0.5000\n|   |--- classic_fico <= 677.5000\n|   |   |--- original_interest_rate <= 5.4945\n|   |   |   |--- class: True\n|   |   |--- original_interest_rate >  5.4945\n|   |   |   |--- class: True\n|   |--- classic_fico >  677.5000\n|   |   |--- n_cure_l12m <= 0.5000\n|   |   |   |--- class: True\n|   |   |--- n_cure_l12m >  0.5000\n|   |   |   |--- class: True\n|--- dpd_cnt30_l3m >  0.5000\n|   |--- classic_fico <= 758.5000\n|   |   |--- number_of_borrowers <= 1.5000\n|   |   |   |--- class: False\n|   |   |--- number_of_borrowers >  1.5000\n|   |   |   |--- class: False\n|   |--- classic_fico >  758.5000\n|   |   |--- ltv_x_dti <= 18.8900\n|   |   |   |--- class: True\n|   |   |--- ltv_x_dti >  18.8900\n|   |   |   |--- class: False\n",
+      "importance": {
+        "dpd_cnt30_l3m": 0.9483923899786988,
+        "classic_fico": 0.036200924852269355,
+        "ltv_x_dti": 0.007402629175468268,
+        "original_interest_rate": 0.0041123642514165,
+        "number_of_borrowers": 0.003576702869237531,
+        "n_cure_l12m": 0.0003149888729096161
+      }
+    },
+    "xgb": {
+      "auc": 0.9426156890082573,
+      "leaves": [
+        {
+          "rule": "dpd_cnt30_l3m <= 0.5 or missing AND months_since_last_dpd60 > 11.5 or missing AND metropolitan_statistical_area_or_metropolitan_division in {48540, 46540, 35660, 38540, 21794, 40660, +364 more}",
+          "bads": 1634466,
+          "missed": 1582160,
+          "miss_rate": 0.9679981106979283,
+          "share_of_misses": 0.9411994260572848,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": true
+            },
+            "months_since_last_dpd60": {
+              "lo": 11.5,
+              "hi": Infinity,
+              "missing": true
+            },
+            "metropolitan_statistical_area_or_metropolitan_division": {
+              "categories": [
+                "48540",
+                "46540",
+                "35660",
+                "38540",
+                "21794",
+                "40660",
+                "48260",
+                "34740",
+                "21140",
+                "21500",
+                "45820",
+                "30620",
+                "41140",
+                "13020",
+                "23460",
+                "13780",
+                "24020",
+                "37900",
+                "17980",
+                "16940",
+                "16540",
+                "26380",
+                "47580",
+                "43100",
+                "47940",
+                "31740",
+                "12980",
+                "26820",
+                "10780",
+                "35644",
+                "22900",
+                "47220",
+                "41060",
+                "19140",
+                "45060",
+                "43780",
+                "44140",
+                "33740",
+                "21780",
+                "19300",
+                "24580",
+                "27620",
+                "29020",
+                "26980",
+                "34100",
+                "33140",
+                "25220",
+                "28100",
+                "16580",
+                "19500",
+                "22520",
+                "__other__",
+                "20700",
+                "24340",
+                "30140",
+                "45460",
+                "20740",
+                "22540",
+                "49620",
+                "15940",
+                "34620",
+                "31180",
+                "29940",
+                "42540",
+                "16820",
+                "25260",
+                "44100",
+                "17860",
+                "20100",
+                "20764",
+                "36140",
+                "35980",
+                "31420",
+                "18020",
+                "27100",
+                "27140",
+                "42140",
+                "27900",
+                "48620",
+                "39380",
+                "43620",
+                "48660",
+                "40420",
+                "46300",
+                "26580",
+                "22420",
+                "39540",
+                "49660",
+                "11540",
+                "12940",
+                "28020",
+                "44220",
+                "10580",
+                "15804",
+                "48140",
+                "25420",
+                "39660",
+                "43300",
+                "40980",
+                "38300",
+                "16974",
+                "16300",
+                "13820",
+                "27500",
+                "14010",
+                "11100",
+                "__missing__",
+                "37964",
+                "24420",
+                "43340",
+                "29620",
+                "29200",
+                "44420",
+                "10900",
+                "10420",
+                "19804",
+                "45940",
+                "41540",
+                "31900",
+                "21060",
+                "23060",
+                "17140",
+                "31700",
+                "33540",
+                "28420",
+                "25180",
+                "27180",
+                "19460",
+                "35004",
+                "36780",
+                "49340",
+                "30700",
+                "19340",
+                "25620",
+                "11500",
+                "12700",
+                "49740",
+                "12220",
+                "14260",
+                "40220",
+                "29540",
+                "36980",
+                "12100",
+                "24780",
+                "43580",
+                "29340",
+                "14020",
+                "45500",
+                "15540",
+                "11260",
+                "47644",
+                "15380",
+                "15500",
+                "36260",
+                "48864",
+                "17420",
+                "30460",
+                "30980",
+                "25540",
+                "45780",
+                "18140",
+                "46220",
+                "40380",
+                "29404",
+                "31340",
+                "26900",
+                "40060",
+                "13140",
+                "11180",
+                "28140",
+                "30780",
+                "40340",
+                "33780",
+                "19430",
+                "37860",
+                "41304",
+                "49700",
+                "11020",
+                "49020",
+                "19780",
+                "18580",
+                "39740",
+                "10540",
+                "26300",
+                "14454",
+                "35380",
+                "31140",
+                "23420",
+                "40484",
+                "35614",
+                "27340",
+                "20994",
+                "49420",
+                "39150",
+                "41180",
+                "26620",
+                "17300",
+                "36220",
+                "33460",
+                "22020",
+                "42340",
+                "29420",
+                "33874",
+                "28940",
+                "36500",
+                "16060",
+                "10740",
+                "39820",
+                "23900",
+                "24660",
+                "45220",
+                "46060",
+                "16860",
+                "20020",
+                "46140",
+                "17460",
+                "21340",
+                "39300",
+                "47664",
+                "32820",
+                "37460",
+                "46520",
+                "24300",
+                "14860",
+                "23844",
+                "38060",
+                "23104",
+                "47260",
+                "29740",
+                "35300",
+                "41100",
+                "29180",
+                "33860",
+                "33340",
+                "31540",
+                "31020",
+                "17900",
+                "36420",
+                "21660",
+                "40580",
+                "14540",
+                "44180",
+                "12580",
+                "48300",
+                "13740",
+                "24540",
+                "22500",
+                "41620",
+                "30340",
+                "34060",
+                "49180",
+                "22220",
+                "12620",
+                "27740",
+                "20260",
+                "32780",
+                "42220",
+                "15764",
+                "48900",
+                "29820",
+                "29700",
+                "33700",
+                "15180",
+                "11460",
+                "41700",
+                "32900",
+                "33124",
+                "17660",
+                "42700",
+                "16700",
+                "35084",
+                "23580",
+                "34580",
+                "39100",
+                "25060",
+                "44060",
+                "16740",
+                "47380",
+                "28700",
+                "10180",
+                "41420",
+                "43420",
+                "20500",
+                "46700",
+                "12020",
+                "18880",
+                "13460",
+                "47300",
+                "34980",
+                "20940",
+                "41660",
+                "17780",
+                "46340",
+                "39580",
+                "17820",
+                "39340",
+                "30860",
+                "22660",
+                "38940",
+                "28740",
+                "14740",
+                "13980",
+                "16984",
+                "22180",
+                "32580",
+                "45104",
+                "39900",
+                "33660",
+                "41500",
+                "12420",
+                "40140",
+                "28660",
+                "38900",
+                "19740",
+                "25940",
+                "26140",
+                "19124",
+                "22380",
+                "16620",
+                "17020",
+                "42020",
+                "39460",
+                "36540",
+                "34820",
+                "11244",
+                "41940",
+                "44700",
+                "38860",
+                "43900",
+                "41884",
+                "26420",
+                "19660",
+                "12540",
+                "25860",
+                "13380",
+                "24860",
+                "33260",
+                "22744",
+                "35154",
+                "37100",
+                "36084",
+                "40900",
+                "15980",
+                "27260",
+                "12060",
+                "23224",
+                "48424",
+                "34940",
+                "42200",
+                "23540",
+                "31084",
+                "12260",
+                "41740",
+                "46660",
+                "42680",
+                "42644",
+                "37340",
+                "27980",
+                "31460",
+                "29460",
+                "36100",
+                "36740",
+                "47894",
+                "14500",
+                "42100",
+                "34900",
+                "35840",
+                "11700",
+                "45300",
+                "42034"
+              ]
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m <= 0.5 or missing AND months_since_last_dpd60 > 11.5 or missing AND metropolitan_statistical_area_or_metropolitan_division in {47764, 28880, 12054, 17410, 30500, 31924, +6 more}",
+          "bads": 49164,
+          "missed": 26430,
+          "miss_rate": 0.5375884793751525,
+          "share_of_misses": 0.015722746644267354,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": true
+            },
+            "months_since_last_dpd60": {
+              "lo": 11.5,
+              "hi": Infinity,
+              "missing": true
+            },
+            "metropolitan_statistical_area_or_metropolitan_division": {
+              "categories": [
+                "47764",
+                "28880",
+                "12054",
+                "17410",
+                "30500",
+                "31924",
+                "47930",
+                "29414",
+                "29484",
+                "43640",
+                "11694",
+                "45294"
+              ]
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m > 0.5 AND dpd <= 0.5 AND months_since_last_dpd60 > 11.5 or missing",
+          "bads": 92317,
+          "missed": 40985,
+          "miss_rate": 0.44395940076042334,
+          "share_of_misses": 0.024381262626382804,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": false
+            },
+            "dpd": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": false
+            },
+            "months_since_last_dpd60": {
+              "lo": 11.5,
+              "hi": Infinity,
+              "missing": true
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m <= 0.5 or missing AND months_since_last_dpd60 <= 11.5",
+          "bads": 31303,
+          "missed": 9843,
+          "miss_rate": 0.3144427051720282,
+          "share_of_misses": 0.005855429255373574,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": true
+            },
+            "months_since_last_dpd60": {
+              "lo": -Infinity,
+              "hi": 11.5,
+              "missing": false
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m > 0.5 AND dpd > 0.5 or missing AND months_since_last_dpd60 > 11.5 or missing",
+          "bads": 213877,
+          "missed": 20383,
+          "miss_rate": 0.09530244018758445,
+          "share_of_misses": 0.012125491670454085,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": false
+            },
+            "dpd": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": true
+            },
+            "months_since_last_dpd60": {
+              "lo": 11.5,
+              "hi": Infinity,
+              "missing": true
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m > 0.5 AND dpd <= 0.5 AND months_since_last_dpd60 <= 11.5",
+          "bads": 42185,
+          "missed": 1072,
+          "miss_rate": 0.025411876259333888,
+          "share_of_misses": 0.0006377141279854182,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": false
+            },
+            "dpd": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": false
+            },
+            "months_since_last_dpd60": {
+              "lo": -Infinity,
+              "hi": 11.5,
+              "missing": false
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m > 0.5 AND dpd > 0.5 or missing AND months_since_last_dpd60 <= 11.5",
+          "bads": 177210,
+          "missed": 131,
+          "miss_rate": 0.000739235934766661,
+          "share_of_misses": 7.792961825194942e-05,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": false
+            },
+            "dpd": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": true
+            },
+            "months_since_last_dpd60": {
+              "lo": -Infinity,
+              "hi": 11.5,
+              "missing": false
+            }
+          }
+        }
+      ],
+      "text": "|--- dpd_cnt30_l3m <= 0.5000\n|   |--- months_since_last_dpd60 <= 11.5000\n|   |   |--- class: False\n|   |--- months_since_last_dpd60 >  11.5000\n|   |   |--- metropolitan_statistical_area_or_metropolitan_division <= 11.5000\n|   |   |   |--- class: True\n|   |   |--- metropolitan_statistical_area_or_metropolitan_division >  11.5000\n|   |   |   |--- class: True\n|--- dpd_cnt30_l3m >  0.5000\n|   |--- dpd <= 0.5000\n|   |   |--- months_since_last_dpd60 <= 11.5000\n|   |   |   |--- class: False\n|   |   |--- months_since_last_dpd60 >  11.5000\n|   |   |   |--- class: False\n|   |--- dpd >  0.5000\n|   |   |--- months_since_last_dpd60 <= 11.5000\n|   |   |   |--- class: False\n|   |   |--- months_since_last_dpd60 >  11.5000\n|   |   |   |--- class: False\n",
+      "importance": {
+        "dpd_cnt30_l3m": 0.8889324961918739,
+        "months_since_last_dpd60": 0.060319431126771295,
+        "metropolitan_statistical_area_or_metropolitan_division": 0.02872723011380774,
+        "dpd": 0.022020842567547137
+      }
+    },
+    "rf": {
+      "auc": 0.9842809931202416,
+      "leaves": [
+        {
+          "rule": "dpd_cnt30_l3m <= 0.5 or missing AND months_since_last_dpd60 > 11.5 or missing AND n_cure_l6m <= 0.5 or missing",
+          "bads": 1617558,
+          "missed": 1606609,
+          "miss_rate": 0.9932311546170215,
+          "share_of_misses": 0.9309681643816565,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": true
+            },
+            "months_since_last_dpd60": {
+              "lo": 11.5,
+              "hi": Infinity,
+              "missing": true
+            },
+            "n_cure_l6m": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": true
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m <= 0.5 or missing AND months_since_last_dpd60 > 11.5 or missing AND n_cure_l6m > 0.5",
+          "bads": 66072,
+          "missed": 56104,
+          "miss_rate": 0.8491342777575978,
+          "share_of_misses": 0.03251011160429729,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": true
+            },
+            "months_since_last_dpd60": {
+              "lo": 11.5,
+              "hi": Infinity,
+              "missing": true
+            },
+            "n_cure_l6m": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": false
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m > 0.5 AND dpd <= 0.5 AND months_since_last_dpd60 > 11.5 or missing",
+          "bads": 92317,
+          "missed": 47689,
+          "miss_rate": 0.5165787449765482,
+          "share_of_misses": 0.02763394254059128,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": false
+            },
+            "dpd": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": false
+            },
+            "months_since_last_dpd60": {
+              "lo": 11.5,
+              "hi": Infinity,
+              "missing": true
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m <= 0.5 or missing AND months_since_last_dpd60 <= 11.5",
+          "bads": 31303,
+          "missed": 6912,
+          "miss_rate": 0.2208095070759991,
+          "share_of_misses": 0.004005238332541403,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": true
+            },
+            "months_since_last_dpd60": {
+              "lo": -Infinity,
+              "hi": 11.5,
+              "missing": false
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m > 0.5 AND dpd > 0.5 or missing AND current_interest_rate <= 3.107",
+          "bads": 66241,
+          "missed": 5007,
+          "miss_rate": 0.07558762699838469,
+          "share_of_misses": 0.002901364052522396,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": false
+            },
+            "dpd": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": true
+            },
+            "current_interest_rate": {
+              "lo": -Infinity,
+              "hi": 3.106500029563904,
+              "missing": false
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m > 0.5 AND dpd > 0.5 or missing AND current_interest_rate > 3.107 or missing",
+          "bads": 324846,
+          "missed": 3385,
+          "miss_rate": 0.010420322245002247,
+          "share_of_misses": 0.0019614773952043763,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": false
+            },
+            "dpd": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": true
+            },
+            "current_interest_rate": {
+              "lo": 3.106500029563904,
+              "hi": Infinity,
+              "missing": true
+            }
+          }
+        },
+        {
+          "rule": "dpd_cnt30_l3m > 0.5 AND dpd <= 0.5 AND months_since_last_dpd60 <= 11.5",
+          "bads": 42185,
+          "missed": 34,
+          "miss_rate": 0.0008059736873296195,
+          "share_of_misses": 1.9701693186690926e-05,
+          "conditions": {
+            "dpd_cnt30_l3m": {
+              "lo": 0.5,
+              "hi": Infinity,
+              "missing": false
+            },
+            "dpd": {
+              "lo": -Infinity,
+              "hi": 0.5,
+              "missing": false
+            },
+            "months_since_last_dpd60": {
+              "lo": -Infinity,
+              "hi": 11.5,
+              "missing": false
+            }
+          }
+        }
+      ],
+      "text": "|--- dpd_cnt30_l3m <= 0.5000\n|   |--- months_since_last_dpd60 <= 11.5000\n|   |   |--- class: False\n|   |--- months_since_last_dpd60 >  11.5000\n|   |   |--- n_cure_l6m <= 0.5000\n|   |   |   |--- class: True\n|   |   |--- n_cure_l6m >  0.5000\n|   |   |   |--- class: True\n|--- dpd_cnt30_l3m >  0.5000\n|   |--- dpd <= 0.5000\n|   |   |--- months_since_last_dpd60 <= 11.5000\n|   |   |   |--- class: False\n|   |   |--- months_since_last_dpd60 >  11.5000\n|   |   |   |--- class: True\n|   |--- dpd >  0.5000\n|   |   |--- current_interest_rate <= 3.1065\n|   |   |   |--- class: False\n|   |   |--- current_interest_rate >  3.1065\n|   |   |   |--- class: False\n",
+      "importance": {
+        "dpd_cnt30_l3m": 0.8871670067036816,
+        "months_since_last_dpd60": 0.07563659716316505,
+        "dpd": 0.03264203812720213,
+        "n_cure_l6m": 0.0038685548144239542,
+        "current_interest_rate": 0.0006858031915270806
+      }
+    }
+  }
+}

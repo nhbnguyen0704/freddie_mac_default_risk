@@ -1,0 +1,357 @@
+{
+  "rule": "the shallowest rung at which at least 75% of the loans FAILED TO RECOVER across the two halves of the performance window -- ending at a worse rung, at a credit event, or still at the same delinquent rung -- rather than recovering to a better rung or prepaying. Staying put counts against the loan at every delinquent rung, because a loan that sat at 60 DPD for the whole window did not cure; only at `Current`, where staying is the good outcome and carries no direction, is it held out",
+  "roll_dominates": 0.75,
+  "evidence": [
+    {
+      "state": "30 DPD",
+      "pairs": 25391509,
+      "cured (%)": 73.9863,
+      "stayed (%)": 17.9642,
+      "deteriorated (%)": 5.6638,
+      "other exit (%)": 2.3858,
+      "roll share of movers (%)": 24.2054,
+      "roll share counts": "moved + stayed",
+      "dpd_threshold": 1,
+      "point_of_no_return": false
+    },
+    {
+      "state": "60 DPD",
+      "pairs": 3748608,
+      "cured (%)": 70.3108,
+      "stayed (%)": 8.9159,
+      "deteriorated (%)": 11.4902,
+      "other exit (%)": 9.2832,
+      "roll share of movers (%)": 22.4942,
+      "roll share counts": "moved + stayed",
+      "dpd_threshold": 2,
+      "point_of_no_return": false
+    },
+    {
+      "state": "90+ DPD",
+      "pairs": 10215173,
+      "cured (%)": 36.6647,
+      "stayed (%)": 27.2837,
+      "deteriorated (%)": 16.913,
+      "other exit (%)": 19.1387,
+      "roll share of movers (%)": 54.6573,
+      "roll share counts": "moved + stayed",
+      "dpd_threshold": 3,
+      "point_of_no_return": false
+    }
+  ],
+  "conclusive": false,
+  "state": "90+ DPD",
+  "dpd_threshold": 3,
+  "roll_share_of_movers": 0.5466,
+  "reason": "INCONCLUSIVE -- no rung reached 75% deterioration among its movers, so on this book every measured rung still cures more often than it rolls across the window. Quoted is the deepest readable rung (90+ DPD, 54.7%), which is a floor on the threshold rather than a recommendation. A book observed over a benign window will do this",
+  "window_months": 53,
+  "observation_half_months": 26,
+  "outcome_half_months": 27,
+  "window_source": "seed vintage analysis, observation basis (data/curated/vintage_seed/suggested_window.json): the age by which 75% of a cohort's OWN bads have arrived, as the median over the 70 cohorts at least that deep -- a self-consistent fixed point, not a share of a pooled total (horizon 122 months)",
+  "seed_window_dpd_threshold": 3,
+  "workout_as_90plus": true,
+  "population_workouts_kept": true,
+  "windows_reported": [
+    12,
+    24,
+    36,
+    53
+  ],
+  "by_window": {
+    "12": {
+      "state": "90+ DPD",
+      "dpd_threshold": 3,
+      "conclusive": true
+    },
+    "24": {
+      "state": "90+ DPD",
+      "dpd_threshold": 3,
+      "conclusive": false
+    },
+    "36": {
+      "state": "90+ DPD",
+      "dpd_threshold": 3,
+      "conclusive": false
+    },
+    "53": {
+      "state": "90+ DPD",
+      "dpd_threshold": 3,
+      "conclusive": false
+    }
+  },
+  "stable_across_windows": true,
+  "excluded": {
+    "12": {
+      "kept": 1189788721,
+      "censored": 115981496,
+      "gapped": 556,
+      "anchors": 1305770773,
+      "unknown_status": 468723,
+      "observation_half_months": 6,
+      "outcome_half_months": 6
+    },
+    "24": {
+      "kept": 1036066526,
+      "censored": 269703879,
+      "gapped": 368,
+      "anchors": 1305770773,
+      "unknown_status": 468723,
+      "observation_half_months": 12,
+      "outcome_half_months": 12
+    },
+    "36": {
+      "kept": 884882183,
+      "censored": 420888357,
+      "gapped": 233,
+      "anchors": 1305770773,
+      "unknown_status": 468723,
+      "observation_half_months": 18,
+      "outcome_half_months": 18
+    },
+    "53": {
+      "kept": 676690472,
+      "censored": 629080195,
+      "gapped": 106,
+      "anchors": 1305770773,
+      "unknown_status": 468723,
+      "observation_half_months": 26,
+      "outcome_half_months": 27
+    }
+  },
+  "sensitivity_empty_outcome_half": {
+    "stable": true,
+    "note": "the same matrices with anchors whose outcome half held no rows removed, so every remaining pair spans both halves",
+    "by_window": {
+      "12m": {
+        "pairs (all)": 1189788721,
+        "pairs (both halves)": 1109091439,
+        "dropped (%)": 6.7825,
+        "state (all)": "90+ DPD",
+        "state (both halves)": "90+ DPD",
+        "roll share (all) %": 0.7776,
+        "roll share (both halves) %": 0.814
+      },
+      "24m": {
+        "pairs (all)": 1036066526,
+        "pairs (both halves)": 891848855,
+        "dropped (%)": 13.9197,
+        "state (all)": "90+ DPD",
+        "state (both halves)": "90+ DPD",
+        "roll share (all) %": 0.6817,
+        "roll share (both halves) %": 0.7389
+      },
+      "36m": {
+        "pairs (all)": 884882183,
+        "pairs (both halves)": 693351334,
+        "dropped (%)": 21.6448,
+        "state (all)": "90+ DPD",
+        "state (both halves)": "90+ DPD",
+        "roll share (all) %": 0.6161,
+        "roll share (both halves) %": 0.6869
+      },
+      "53m": {
+        "pairs (all)": 676690472,
+        "pairs (both halves)": 447464141,
+        "dropped (%)": 33.8746,
+        "state (all)": "90+ DPD",
+        "state (both halves)": "90+ DPD",
+        "roll share (all) %": 0.5466,
+        "roll share (both halves) %": 0.6263
+      }
+    },
+    "by_window_excluded": {
+      "12": [
+        {
+          "state": "Current",
+          "pairs": 1079630760,
+          "cured (%)": 6.5152,
+          "stayed (%)": 92.1304,
+          "deteriorated (%)": 1.3172,
+          "other exit (%)": 0.0373,
+          "roll share of movers (%)": 16.8168,
+          "roll share counts": "moved"
+        },
+        {
+          "state": "30 DPD",
+          "pairs": 18540856,
+          "cured (%)": 60.8882,
+          "stayed (%)": 28.5658,
+          "deteriorated (%)": 10.3689,
+          "other exit (%)": 0.1771,
+          "roll share of movers (%)": 39.0038,
+          "roll share counts": "moved + stayed"
+        },
+        {
+          "state": "60 DPD",
+          "pairs": 2599415,
+          "cured (%)": 47.7249,
+          "stayed (%)": 23.1277,
+          "deteriorated (%)": 28.8441,
+          "other exit (%)": 0.3033,
+          "roll share of movers (%)": 52.13,
+          "roll share counts": "moved + stayed"
+        },
+        {
+          "state": "90+ DPD",
+          "pairs": 8320408,
+          "cured (%)": 18.4836,
+          "stayed (%)": 76.4398,
+          "deteriorated (%)": 4.4602,
+          "other exit (%)": 0.6164,
+          "roll share of movers (%)": 81.4017,
+          "roll share counts": "moved + stayed"
+        }
+      ],
+      "24": [
+        {
+          "state": "Current",
+          "pairs": 857686541,
+          "cured (%)": 12.4964,
+          "stayed (%)": 85.2838,
+          "deteriorated (%)": 2.1589,
+          "other exit (%)": 0.0609,
+          "roll share of movers (%)": 14.7313,
+          "roll share counts": "moved"
+        },
+        {
+          "state": "30 DPD",
+          "pairs": 23377351,
+          "cured (%)": 64.8771,
+          "stayed (%)": 25.4444,
+          "deteriorated (%)": 9.2647,
+          "other exit (%)": 0.4137,
+          "roll share of movers (%)": 34.8534,
+          "roll share counts": "moved + stayed"
+        },
+        {
+          "state": "60 DPD",
+          "pairs": 2888934,
+          "cured (%)": 53.9293,
+          "stayed (%)": 19.249,
+          "deteriorated (%)": 26.0217,
+          "other exit (%)": 0.8001,
+          "roll share of movers (%)": 45.6358,
+          "roll share counts": "moved + stayed"
+        },
+        {
+          "state": "90+ DPD",
+          "pairs": 7896029,
+          "cured (%)": 25.6762,
+          "stayed (%)": 65.9802,
+          "deteriorated (%)": 6.6953,
+          "other exit (%)": 1.6482,
+          "roll share of movers (%)": 73.8935,
+          "roll share counts": "moved + stayed"
+        }
+      ],
+      "36": [
+        {
+          "state": "Current",
+          "pairs": 659755628,
+          "cured (%)": 18.6271,
+          "stayed (%)": 78.4708,
+          "deteriorated (%)": 2.8335,
+          "other exit (%)": 0.0686,
+          "roll share of movers (%)": 13.2031,
+          "roll share counts": "moved"
+        },
+        {
+          "state": "30 DPD",
+          "pairs": 23849635,
+          "cured (%)": 67.2332,
+          "stayed (%)": 23.828,
+          "deteriorated (%)": 8.3518,
+          "other exit (%)": 0.587,
+          "roll share of movers (%)": 32.3698,
+          "roll share counts": "moved + stayed"
+        },
+        {
+          "state": "60 DPD",
+          "pairs": 2768184,
+          "cured (%)": 58.8255,
+          "stayed (%)": 16.8845,
+          "deteriorated (%)": 23.0094,
+          "other exit (%)": 1.2806,
+          "roll share of movers (%)": 40.4114,
+          "roll share counts": "moved + stayed"
+        },
+        {
+          "state": "90+ DPD",
+          "pairs": 6977887,
+          "cured (%)": 30.2417,
+          "stayed (%)": 58.6183,
+          "deteriorated (%)": 7.7242,
+          "other exit (%)": 3.4158,
+          "roll share of movers (%)": 68.6888,
+          "roll share counts": "moved + stayed"
+        }
+      ],
+      "53": [
+        {
+          "state": "Current",
+          "pairs": 419958572,
+          "cured (%)": 29.7317,
+          "stayed (%)": 66.6056,
+          "deteriorated (%)": 3.5988,
+          "other exit (%)": 0.0639,
+          "roll share of movers (%)": 10.7973,
+          "roll share counts": "moved"
+        },
+        {
+          "state": "30 DPD",
+          "pairs": 19792794,
+          "cured (%)": 68.9986,
+          "stayed (%)": 23.0456,
+          "deteriorated (%)": 7.2649,
+          "other exit (%)": 0.6909,
+          "roll share of movers (%)": 30.5214,
+          "roll share counts": "moved + stayed"
+        },
+        {
+          "state": "60 DPD",
+          "pairs": 2260687,
+          "cured (%)": 64.4116,
+          "stayed (%)": 14.784,
+          "deteriorated (%)": 18.9766,
+          "other exit (%)": 1.8278,
+          "roll share of movers (%)": 34.3892,
+          "roll share counts": "moved + stayed"
+        },
+        {
+          "state": "90+ DPD",
+          "pairs": 5452088,
+          "cured (%)": 35.3924,
+          "stayed (%)": 51.1194,
+          "deteriorated (%)": 8.1917,
+          "other exit (%)": 5.2965,
+          "roll share of movers (%)": 62.6282,
+          "roll share counts": "moved + stayed"
+        }
+      ]
+    }
+  },
+  "analysis_period": "2016-01-2025-12",
+  "analysis_start": "2016-01-01",
+  "analysis_end": "2025-12-01",
+  "analysis_months": 120,
+  "analysis_bounds": "observation months only",
+  "analysis_period_source": "OBSERVATION_START / OBSERVATION_END",
+  "panel_floor_applied_as": "partition paths named at read time",
+  "panel_partitions_total": 327,
+  "panel_partitions_read": 123,
+  "panel_partitions_skipped": 204,
+  "panel_rows_read": 1431383840,
+  "panel_rows_in_period": 1390947554,
+  "panel_rows_remaining": 40436286,
+  "analysed_population": {
+    "loan_before": 28595976,
+    "loans_with_workout": 1407774,
+    "loans_with_disaster": 944764,
+    "loans_dropped": 944764,
+    "loan_analysed": 27651212,
+    "excluded_workouts": false,
+    "excluded_disasters": true
+  },
+  "source": "src/jobs/roll_rate_main.py",
+  "generated_at": "2026-09-24T04:46:29+00:00"
+}

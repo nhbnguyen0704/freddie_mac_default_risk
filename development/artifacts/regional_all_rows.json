@@ -1,0 +1,287 @@
+{
+  "meta": {
+    "version": "recency_12",
+    "half_life": 12,
+    "split": {
+      "dev_end": "2022-09",
+      "end_ym": 202209,
+      "valid_share": 0.2,
+      "salt": "gbm_valid",
+      "unit": "loan_identifier",
+      "training_set": "hdfs://localhost:9000/user/binhn/fre/curated/training_set",
+      "first_month": "2016-01"
+    },
+    "regional": "hdfs://localhost:9000/user/binhn/fre/curated/regional_features",
+    "source": "src/jobs/21_regional_all_rows_main.py",
+    "generated": "2026-10-14T17:44:40"
+  },
+  "features": [
+    "current_actual_upb",
+    "current_interest_rate",
+    "remaining_months_to_legal_maturity",
+    "classic_fico",
+    "mortgage_insurance_percentage",
+    "number_of_units",
+    "original_combined_loan_to_value",
+    "original_debt_to_income_ratio",
+    "original_loan_term",
+    "number_of_borrowers",
+    "dpd",
+    "months_since_last_dpd60",
+    "current_streak_l3m",
+    "current_streak_l6m",
+    "current_streak_l12m",
+    "n_cure_l3m",
+    "n_roll_forward_l6m",
+    "n_cure_l6m",
+    "n_cure_l12m",
+    "n_curtail_l3m",
+    "n_curtail_l12m",
+    "servicer_changed_l12m",
+    "ltv_x_dti",
+    "upb_pct_of_original",
+    "estimated_property_value",
+    "property_value_change",
+    "upb_pct_of_original_roc_l12m",
+    "property_value_roc_l3m",
+    "property_value_roc_l12m",
+    "servicer_name",
+    "metropolitan_statistical_area_or_metropolitan_division",
+    "occupancy_status",
+    "property_state",
+    "property_type",
+    "postal_code",
+    "loan_purpose",
+    "seller_name",
+    "property_valuation_method"
+  ],
+  "regional": [
+    "zip3_loans",
+    "zip3_dpd30_rate",
+    "zip3_dpd90_rate",
+    "zip3_new_dpd30_3m",
+    "zip3_dpd30_chg_6m",
+    "msa_loans",
+    "msa_dpd30_rate",
+    "msa_dpd90_rate",
+    "msa_new_dpd30_3m",
+    "msa_dpd30_chg_6m",
+    "state_loans",
+    "state_dpd30_rate",
+    "state_dpd90_rate",
+    "state_new_dpd30_3m",
+    "state_dpd30_chg_6m"
+  ],
+  "fitted": {
+    "features": [
+      "current_actual_upb",
+      "current_interest_rate",
+      "remaining_months_to_legal_maturity",
+      "classic_fico",
+      "mortgage_insurance_percentage",
+      "number_of_units",
+      "original_combined_loan_to_value",
+      "original_debt_to_income_ratio",
+      "original_loan_term",
+      "number_of_borrowers",
+      "dpd",
+      "months_since_last_dpd60",
+      "current_streak_l3m",
+      "current_streak_l6m",
+      "current_streak_l12m",
+      "n_cure_l3m",
+      "n_roll_forward_l6m",
+      "n_cure_l6m",
+      "n_cure_l12m",
+      "n_curtail_l3m",
+      "n_curtail_l12m",
+      "servicer_changed_l12m",
+      "ltv_x_dti",
+      "upb_pct_of_original",
+      "estimated_property_value",
+      "property_value_change",
+      "upb_pct_of_original_roc_l12m",
+      "property_value_roc_l3m",
+      "property_value_roc_l12m",
+      "servicer_name",
+      "metropolitan_statistical_area_or_metropolitan_division",
+      "occupancy_status",
+      "property_state",
+      "property_type",
+      "postal_code",
+      "loan_purpose",
+      "seller_name",
+      "property_valuation_method",
+      "zip3_loans",
+      "zip3_dpd30_rate",
+      "zip3_dpd90_rate",
+      "zip3_new_dpd30_3m",
+      "zip3_dpd30_chg_6m",
+      "msa_loans",
+      "msa_dpd30_rate",
+      "msa_dpd90_rate",
+      "msa_new_dpd30_3m",
+      "msa_dpd30_chg_6m",
+      "state_loans",
+      "state_dpd30_rate",
+      "state_dpd90_rate",
+      "state_new_dpd30_3m",
+      "state_dpd30_chg_6m"
+    ],
+    "best_iteration": 486,
+    "valid_ap_sample": 0.25916376186264944,
+    "seconds": 2730,
+    "path": "/Users/binhn/Desktop/NUS-ISS/Predictive_Analytic_Lifecycle_GC/Practice_module/test_freddie_mac_default_risk/development/artifacts/regional_models/all_rows_regional.ubj",
+    "gain_share": {
+      "current_streak_l3m": 0.17388947470232238,
+      "classic_fico": 0.12287250367374525,
+      "n_roll_forward_l6m": 0.11592006814078253,
+      "postal_code": 0.08389810041092184,
+      "metropolitan_statistical_area_or_metropolitan_division": 0.05273620663686612,
+      "n_cure_l12m": 0.05259486020476467,
+      "current_interest_rate": 0.036224525050879544,
+      "number_of_borrowers": 0.032882095140938344,
+      "seller_name": 0.02995183389307489,
+      "months_since_last_dpd60": 0.023920947661376767,
+      "servicer_name": 0.022890465423540018,
+      "upb_pct_of_original_roc_l12m": 0.020996995917535587,
+      "ltv_x_dti": 0.01887442067637824,
+      "upb_pct_of_original": 0.01831164534712315,
+      "current_streak_l6m": 0.01627678129927183,
+      "property_state": 0.014171825806921121,
+      "original_combined_loan_to_value": 0.014075234801896647,
+      "original_debt_to_income_ratio": 0.013134739170140974,
+      "current_actual_upb": 0.012670056048152313,
+      "estimated_property_value": 0.011421412151328941,
+      "dpd": 0.008962406351233914,
+      "current_streak_l12m": 0.0071631383995637895,
+      "property_valuation_method": 0.007149446276919568,
+      "occupancy_status": 0.006007580178256891,
+      "n_cure_l3m": 0.005960016567520184,
+      "state_dpd90_rate": 0.005614213962894512,
+      "loan_purpose": 0.0052630662764583825,
+      "remaining_months_to_legal_maturity": 0.005166845003736825,
+      "property_value_change": 0.00431986268967931,
+      "state_dpd30_rate": 0.004079211952002718,
+      "msa_loans": 0.003908592521643717,
+      "property_value_roc_l12m": 0.0038969352630473463,
+      "msa_dpd90_rate": 0.0034802578714467703,
+      "state_new_dpd30_3m": 0.00326924184603974,
+      "original_loan_term": 0.0032164171228167924,
+      "state_dpd30_chg_6m": 0.003094593892691084,
+      "zip3_loans": 0.002919765973257636,
+      "mortgage_insurance_percentage": 0.0026793571206900598,
+      "msa_new_dpd30_3m": 0.0026182679895757456,
+      "n_curtail_l12m": 0.002544979028847048,
+      "n_curtail_l3m": 0.0023640409490124715,
+      "msa_dpd30_rate": 0.0022646027825252487,
+      "property_value_roc_l3m": 0.002220083004108806,
+      "zip3_dpd90_rate": 0.0022120317491173733,
+      "state_loans": 0.0020461791927023428,
+      "zip3_new_dpd30_3m": 0.001943019871043551,
+      "property_type": 0.001716709512557949,
+      "msa_dpd30_chg_6m": 0.0016678140859746873,
+      "zip3_dpd30_chg_6m": 0.0016264561869390787,
+      "zip3_dpd30_rate": 0.0015363298175928959,
+      "n_cure_l6m": 0.0008531117406298494,
+      "servicer_changed_l12m": 0.00028907294588992517,
+      "number_of_units": 0.00023215971562260646
+    }
+  },
+  "full": {
+    "all_rows_recency_12": {
+      "test": {
+        "rows": 187470934,
+        "bads": 2240522,
+        "bad_rate": 0.011951303341775637,
+        "average_precision": 0.21738849363007845
+      },
+      "valid": {
+        "rows": 115353351,
+        "bads": 1031135,
+        "bad_rate": 0.008938925406683678,
+        "average_precision": 0.2564476609810687
+      },
+      "test/clean": {
+        "rows": 184961128,
+        "bads": 1683630,
+        "bad_rate": 0.0091026153343961,
+        "average_precision": 0.07206209686717988
+      },
+      "test/delinquent": {
+        "rows": 2509806,
+        "bads": 556892,
+        "bad_rate": 0.22188647250026497,
+        "average_precision": 0.5698309189551545
+      },
+      "valid/clean": {
+        "rows": 113744502,
+        "bads": 668723,
+        "bad_rate": 0.005879167680561826,
+        "average_precision": 0.04595451324516898
+      },
+      "valid/delinquent": {
+        "rows": 1608849,
+        "bads": 362412,
+        "bad_rate": 0.2252616622193879,
+        "average_precision": 0.5799914247897876
+      }
+    },
+    "all_rows_regional": {
+      "test": {
+        "rows": 187470934,
+        "bads": 2240522,
+        "bad_rate": 0.011951303341775637,
+        "average_precision": 0.2172884543516171
+      },
+      "valid": {
+        "rows": 115353351,
+        "bads": 1031135,
+        "bad_rate": 0.008938925406683678,
+        "average_precision": 0.2573169735127522
+      },
+      "test/clean": {
+        "rows": 184961128,
+        "bads": 1683630,
+        "bad_rate": 0.0091026153343961,
+        "average_precision": 0.07530673308181554
+      },
+      "test/delinquent": {
+        "rows": 2509806,
+        "bads": 556892,
+        "bad_rate": 0.22188647250026497,
+        "average_precision": 0.5625084358657231
+      },
+      "valid/clean": {
+        "rows": 113744502,
+        "bads": 668723,
+        "bad_rate": 0.005879167680561826,
+        "average_precision": 0.047519048719582006
+      },
+      "valid/delinquent": {
+        "rows": 1608849,
+        "bads": 362412,
+        "bad_rate": 0.2252616622193879,
+        "average_precision": 0.5794595870335321
+      }
+    }
+  },
+  "clean_models": {
+    "clean_base": {
+      "valid": 0.04482065500885846,
+      "test": 0.07445604354258066
+    },
+    "clean_regional": {
+      "valid": 0.046709254442088524,
+      "test": 0.07824432834443842
+    },
+    "all_rows_recency_12": {
+      "valid": 0.04595451324516898,
+      "test": 0.07206209686717988
+    },
+    "all_rows_regional": {
+      "valid": 0.047519048719582006,
+      "test": 0.07530673308181554
+    }
+  }
+}
